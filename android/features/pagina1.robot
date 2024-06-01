@@ -1,5 +1,5 @@
 *** Settings ***
-Resource    ../base.robot
+Resource    ../../base.robot
 
 Test Setup        Abrir App
 Test Teardown     Teardown    
