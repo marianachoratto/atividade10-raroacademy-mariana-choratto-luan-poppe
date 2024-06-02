@@ -12,7 +12,7 @@ ${ANDROID_PLATFORM_NAME}    Android
 
 *** Keywords ***
 Abrir App
-    Open Application    ${APPIUM:URL}    automationName=${ANDROID_AUTOMATION_NAME}    platformName=${ANDROID_PLATFORM_NAME}     AppiumUdid=${APPIUM:UDID}    app=${APPIUM:APP}
+    Open Application    ${APPIUM:URL}    autoGrantPermissions=${True}    automationName=${ANDROID_AUTOMATION_NAME}    platformName=${ANDROID_PLATFORM_NAME}     AppiumUdid=${APPIUM:UDID}    app=${APPIUM:APP}
 
 Teardown
     Run Keyword If Test Failed    Capture Page Screenshot
