@@ -8,7 +8,7 @@ ${botaoMenu}    xpath=//android.widget.Button[@resource-id="br.com.pztec.estoque
 
 *** Keywords ***
 Dado que acessei o aplicativo
-    Espera o elemento para clicar    ${botaoAceitarVersao}
+    Wait Until Keyword Succeeds    4    1    Espera o elemento para clicar    ${botaoAceitarVersao}
 
 Acessar Menu
     Espera o elemento para clicar    ${botaoMenu}

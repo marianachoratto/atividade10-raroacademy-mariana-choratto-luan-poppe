@@ -17,3 +17,6 @@ ${botaoNovoApp}    xpath=//android.widget.Button[@resource-id="br.com.pztec.esto
 
 Acessar backup
     Espera o elemento para clicar    ${botaoBackup}
+
+Acessar restore
+    Espera o elemento para clicar    ${botaoRestore}
