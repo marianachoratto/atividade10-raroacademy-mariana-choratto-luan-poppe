@@ -6,5 +6,7 @@ Test Teardown     Teardown
 
 
 *** Test Cases ***
-Testeasdasda
-    Log    messagesaddada
+Cadastrar um produto
+    Dado que acessei o aplicativo
+    E cadastrei um produto
+    # Então deve ter o produto em estoque
