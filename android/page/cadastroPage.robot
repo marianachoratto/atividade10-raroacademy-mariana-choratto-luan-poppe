@@ -14,11 +14,16 @@ ${botaoSalvar}    xpath=//android.widget.Button[@resource-id="br.com.pztec.estoq
 E cadastrei um produto
     Espera o elemento para clicar    ${botaoNovo}
 
+    Wait Until Element Is Visible    ${campoCodigo}
+
     Input Text    ${campoCodigo}    TV Samsung 55 polegadas
     Input Text    ${campoDescricao}    Televisão QLED com qualidade 4k
     Input Text    ${campoUnidade}    Unidade 01
     Input Text    ${campoQuantidade}    50
     Input Text    ${campoValorUnitario}    4500
+
+    Swipe By Percent    50    40    50    10
+
     Input Text    ${campoLote}    Lote 01
 
     Espera o elemento para clicar    ${botaoSalvar}
