@@ -17,5 +17,6 @@ Usuário deve poder gerar um backup
 
 Usuário deve poder enviar um backup
     Dado que acessei a seção de backup
+    E que gerei um backup
     Quando executar a funcinoalidade de enviar backup
     Então o celular deverá mostrar opções de para onde enviar o backup

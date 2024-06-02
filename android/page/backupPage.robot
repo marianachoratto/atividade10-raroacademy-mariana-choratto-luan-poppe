@@ -30,6 +30,10 @@ Dado que já realizei um backup antes
     Set Global Variable    ${backupCriado}    ${lista}[0]
     Clicar para voltar no celular
 
+E que gerei um backup
+    Quando executar a funcinoalidade de gerar backup
+    Espera o elemento para clicar    ${botaoOkMensagemSucessoBackup}
+
 Quando usuário acessar a seção de backup
     Dado que acessei o aplicativo
     Acessar Menu
@@ -52,7 +56,7 @@ Então deve ser possível ver as informações e instruções sobre backup
     Element Text Should Be    ${tituloBackup}    Gerar backup
     Element Text Should Be    ${gerarBackup}    GERAR BACKUP
     Element Text Should Be    ${botaoEnviarBackup}    ENVIAR
-    Element Text Should Be    ${botaoEnviarBackup}    Envie o arquivo de backup para o drive virtual. Caso tenha problemas com seu aparelho seus dados poderão ser restaurados. Atenção, não altere o arquivo original, sob o risco de não conseguir restaurá-lo novamente.
+    Element Text Should Be    ${textoBackup}    Envie o arquivo de backup para o drive virtual. Caso tenha problemas com seu aparelho seus dados poderão ser restaurados. Atenção, não altere o arquivo original, sob o risco de não conseguir restaurá-lo novamente.
 
 Então o backup deve ser gerado com sucesso
     Wait Until Element Is Visible    ${tituloMensagemSucessoBackup}
