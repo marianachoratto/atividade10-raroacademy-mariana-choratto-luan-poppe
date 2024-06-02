@@ -11,6 +11,10 @@ ${campoLote}    xpath=//android.widget.EditText[@resource-id="br.com.pztec.estoq
 ${botaoSalvar}    xpath=//android.widget.Button[@resource-id="br.com.pztec.estoque:id/btn_gravar_assunto"]
 
 *** Keywords ***
+Dado que realizei o cadastro de um produto
+    Dado que acessei o aplicativo
+    E cadastrei um produto
+
 E cadastrei um produto
     Espera o elemento para clicar    ${botaoNovo}
 

@@ -20,3 +20,8 @@ Acessar backup
 
 Acessar restore
     Espera o elemento para clicar    ${botaoRestore}
+
+Acessar exportar dados
+    Espera o elemento para clicar    ${botaoExportarDados}
+Acessar importar dados
+    Espera o elemento para clicar    ${botaoImportarDados}

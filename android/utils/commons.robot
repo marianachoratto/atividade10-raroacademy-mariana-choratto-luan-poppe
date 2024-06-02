@@ -1,4 +1,5 @@
 *** Settings ***
+Library    DateTime
 
 Resource    ../../base.robot
 
@@ -38,3 +39,6 @@ Checar se elementos estão habilitados e visíveis
     [Arguments]    @{elementos}
     Checar se elementos estão habilitados    @{elementos}
     Checar se elementos estão visíveis    @{elementos}
+
+Pegar e formatar data atual
+    Run Keyword And Return    Get Current Date    result_format=%d/%m/%Y

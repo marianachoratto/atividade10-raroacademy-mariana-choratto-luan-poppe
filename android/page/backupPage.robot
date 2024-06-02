@@ -13,8 +13,6 @@ ${infoUltimoBackup}    xpath=//android.widget.TextView[@resource-id="br.com.pzte
 ${tituloMensagemSucessoBackup}    xpath=//android.widget.TextView[@resource-id="android:id/alertTitle"]
 ${textoMensagemSucessoBackup}    xpath=//android.widget.TextView[@resource-id="android:id/message"]
 ${botaoOkMensagemSucessoBackup}    xpath=//android.widget.Button[@resource-id="android:id/button1"]
-${celularEnviarBackupHeader}    xpath=//android.widget.RelativeLayout[@resource-id="android:id/chooser_header"]
-${celularEnviarBackupBody}    xpath=//android.widget.ScrollView[@resource-id="android:id/contentPanel"]/android.widget.ScrollView
 
 *** Keywords ***
 Dado que acessei a seção de backup
@@ -68,6 +66,4 @@ Então o backup deve ser gerado com sucesso
     Element Text Should Be    ${botaoOkMensagemSucessoBackup}    OK
 
 Então o celular deverá mostrar opções de para onde enviar o backup
-    Wait Until Page Contains Element    ${celularEnviarBackupHeader}
-    Element Should Be Visible    ${celularEnviarBackupHeader}
-    Element Should Be Visible    ${celularEnviarBackupBody}
+    Então o celular deverá mostrar opções de para onde enviar o arquivo
