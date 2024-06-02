@@ -5,7 +5,8 @@ Resource    ../../config-celular.robot
 
 *** Variables ***
 ${ANDROID_AUTOMATION_NAME}    UIAutomator2
-${APPIUM:APP}    
+# As configurações diferentes do celular do outro integrante da dupla se encontram no arquivo config-celular.robot
+# ${APPIUM:APP}    D:\\Users\\Mariana Choratto\\Documents\\Mariana\\Programação\\Raro\\Exercicios pontuados\\atividade10-raroacademy-mariana-choratto-luan-poppe\\product_registration.apk
 # ${APPIUM:UDID}    RXCT702F7XT
 ${ANDROID_PLATFORM_NAME}    Android
 
