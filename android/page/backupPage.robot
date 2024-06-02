@@ -20,13 +20,15 @@ ${celularEnviarBackupBody}    xpath=//android.widget.ScrollView[@resource-id="an
 Dado que acessei a seção de backup
     Quando usuário acessar a seção de backup
 
-E que já realizei um backup antes
+Dado que já realizei um backup antes
     Quando usuário acessar a seção de backup
     Quando executar a funcinoalidade de gerar backup
+    Espera o elemento para clicar    ${botaoOkMensagemSucessoBackup}
     ${temp}=    Get Text    ${infoUltimoBackup}
-    @{lista}=    Split String    ${temp}    separator=-
-    Log    @{lista}
-    Set Global Variable    ${backupCriado}    @{lista}[0]
+    @{lista}=    Split String    ${temp}    separator=${SPACE}-${SPACE}
+    Log    ${lista}[0]
+    Set Global Variable    ${backupCriado}    ${lista}[0]
+    Clicar para voltar no celular
 
 Quando usuário acessar a seção de backup
     Dado que acessei o aplicativo

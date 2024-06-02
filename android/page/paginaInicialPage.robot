@@ -31,4 +31,5 @@ Quando cadastro uma saída de estoque
     Input Text    ${inputDocReferencia}    Venda de produto 
 
 Acessar Menu
-    Espera o elemento para clicar    ${botaoMenu}
+    Wait Until Page Contains Element    ${botaoMenu}
+    Wait Until Keyword Succeeds    4    1    Espera o elemento para clicar    ${botaoMenu}

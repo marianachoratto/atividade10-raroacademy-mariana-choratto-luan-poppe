@@ -3,6 +3,7 @@
 Library    AppiumLibrary
 
 Resource    android/utils/commons.robot
+Resource    android/utils/celularInteraction.robot
 Resource    android/utils/config.robot
 
 # Page Objects

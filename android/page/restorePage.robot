@@ -8,14 +8,20 @@ ${descricaoRestore}    xpath=//android.widget.TextView[@resource-id="br.com.pzte
 ${botaoSelecionarArquivoRestore}    xpath=//android.widget.Button[@resource-id="br.com.pztec.estoque:id/btn_procurar"]
 ${telaEscolherPastaCelular}    xpath=/hierarchy/android.widget.FrameLayout
 ${pastaEstoqueCelular}    xpath=//android.widget.TextView[@resource-id="android:id/text1" and @text="Estoque"]
+${mensagemSucessoTituloRestore}    xpath=//android.widget.TextView[@resource-id="android:id/alertTitle"]
+${mensagemSucessoTextoRestore}    xpath=//android.widget.FrameLayout[@resource-id="android:id/contentPanel"]
+${mensagemSucessoOKRestore}    xpath=//android.widget.Button[@resource-id="android:id/button1"]
 
 *** Keywords ***
-Dado que acessei a seção de restore
-    Quando usuário acessar a seção de restore
+Confirmar operação de restauração
+    Espera o elemento para clicar    xpath=//android.widget.Button[@resource-id="android:id/button1"]
+
+E que acessei a seção de restore
+    Acessar restore
 Quando usuário acessar a seção de restore
     Dado que acessei o aplicativo
     Acessar Menu
-    Acessar restore
+    E que acessei a seção de restore
 
 Quando executar a funcinoalidade de selecionar arquivo
     Wait Until Element Is Visible    ${botaoSelecionarArquivoRestore}
@@ -31,21 +37,10 @@ Então deve ser possível ver as informações e instruções sobre restore de b
     Element Text Should Be    ${descricaoRestore}    Atenção: você só deve executar esta operação caso tenha trocado de aparelho ou reinstalado o aplicativo.
     Element Text Should Be    ${botaoSelecionarArquivoRestore}    SELECIONAR ARQUIVO
 
-Então deve ser possível selecionar um arquivo da pasta onde os backups são guardados
+Então deve ser possível restaurar um backup a partir do backup previamente criado
     Wait Until Page Contains Element    ${telaEscolherPastaCelular}
     Swipe para cima Y
     Espera o elemento para clicar    ${pastaEstoqueCelular}
-
-# Então o backup deve ser gerado com sucesso
-#     Wait Until Element Is Visible    ${tituloMensagemSucessoBackup}
-#     Element Should Be Visible    ${tituloMensagemSucessoBackup}
-#     Element Should Be Visible    ${textoMensagemSucessoBackup}
-#     Element Should Be Visible    ${botaoOkMensagemSucessoBackup}
-#     Element Text Should Be    ${tituloMensagemSucessoBackup}    Operação concluída!
-#     Element Text Should Be    ${textoMensagemSucessoBackup}    Enviar
-#     Element Text Should Be    ${botaoOkMensagemSucessoBackup}    OK
-
-# Então o celular deverá mostrar opções de para onde enviar o backup
-#     Wait Until Page Contains Element    ${celularEnviarBackupHeader}
-#     Element Should Be Visible    ${celularEnviarBackupHeader}
-#     Element Should Be Visible    ${celularEnviarBackupBody}
+    ${texto}=    Get Substring    ${backupCriado}    0    -1
+    Click Text    ${texto}
+    Checar se elementos estão visíveis    ${mensagemSucessoTituloRestore}    ${mensagemSucessoTextoRestore}    ${mensagemSucessoOKRestore}
