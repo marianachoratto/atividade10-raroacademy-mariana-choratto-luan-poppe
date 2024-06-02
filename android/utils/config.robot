@@ -9,10 +9,12 @@ ${ANDROID_AUTOMATION_NAME}    UIAutomator2
 # ${APPIUM:APP}    D:\\Users\\Mariana Choratto\\Documents\\Mariana\\Programação\\Raro\\Exercicios pontuados\\atividade10-raroacademy-mariana-choratto-luan-poppe\\product_registration.apk
 # ${APPIUM:UDID}    RXCT702F7XT
 ${ANDROID_PLATFORM_NAME}    Android
+${APP_PACKAGE}                 br.com.pztec.estoque
+${APP_ACTIVITY}               .Inicio
 
 *** Keywords ***
 Abrir App
-    Open Application    ${APPIUM:URL}    autoGrantPermissions=${True}    automationName=${ANDROID_AUTOMATION_NAME}    platformName=${ANDROID_PLATFORM_NAME}     AppiumUdid=${APPIUM:UDID}    app=${APPIUM:APP}
+    Open Application    ${APPIUM:URL}    autoGrantPermissions=${True}    automationName=${ANDROID_AUTOMATION_NAME}    platformName=${ANDROID_PLATFORM_NAME}     AppiumUdid=${APPIUM:UDID}    app=${APPIUM:APP}    appPackage=${APP_PACKAGE}    appActivity=${APP_ACTIVITY}
 
 Teardown
     Run Keyword If Test Failed    Capture Page Screenshot
