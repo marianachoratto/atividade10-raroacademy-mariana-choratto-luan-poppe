@@ -6,6 +6,7 @@ ${botaoNovo}            xpath=//android.widget.Button[@resource-id="br.com.pztec
 ${botaoAceitarVersao}    xpath=//android.widget.Button[@resource-id="android:id/button1"]
 ${estoqueProduto}        xpath=//android.widget.LinearLayout[@resource-id="br.com.pztec.estoque:id/linha_parte1"]
 ${botaoSaidaEstoque}     xpath=//android.widget.Button[@resource-id="br.com.pztec.estoque:id/saida"]
+${botaoMenu}    xpath=//android.widget.Button[@resource-id="br.com.pztec.estoque:id/Button3"]
 
 # página de estoque
 # ${pagEstoque}            xpath=//android.widget.ScrollView[@resource-id="br.com.pztec.estoque:id/scrollView1"]/android.widget.LinearLayout
@@ -28,4 +29,6 @@ Quando cadastro uma saída de estoque
     Input Text    ${inputDiminuirEstoque}    1 
     Input Text    ${inputMotivo}    Venda de produto 
     Input Text    ${inputDocReferencia}    Venda de produto 
-     
+
+Acessar Menu
+    Espera o elemento para clicar    ${botaoMenu}
