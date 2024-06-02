@@ -6,3 +6,5 @@ Test Teardown     Teardown
 
 
 *** Test Cases ***
+Testeasdasda
+    Log    messagesaddada
