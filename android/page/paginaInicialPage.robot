@@ -20,7 +20,7 @@ ${tabela_lote}            xpath=//android.widget.TextView[@resource-id="br.com.p
 *** Keywords ***
 Dado que acessei o aplicativo
     Wait Until Page Contains Element    ${botaoAceitarVersao}
-    Espera o elemento para clicar    ${botaoAceitarVersao}
+    Wait Until Keyword Succeeds    4    1    Espera o elemento para clicar    ${botaoAceitarVersao}
 
 Acessar Menu
     Wait Until Page Contains Element    ${botaoMenu}

@@ -30,7 +30,12 @@ Checar data da exportação
     ${hoje}=    Pegar e formatar data atual
     Element Should Contain Text    ${elementoTestado}    ${hoje}
 
-
+Dado que realizei a exportação de produtos
+    Dado que realizei o cadastro de um produto
+    Quando usuário acessar a seção de exportar dados
+    Quando executo a funcionalidade de exportar dados
+    Espera o elemento para clicar    ${mensagemSucessoOKExportar}
+    Clicar para voltar no celular
 
 E que acessei a seção de exportar dados
     # Dado que acessei o aplicativo
