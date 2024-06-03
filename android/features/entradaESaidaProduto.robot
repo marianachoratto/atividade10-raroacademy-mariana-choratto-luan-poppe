@@ -17,13 +17,16 @@ O usuário deve poder documentar entrada de estoque
     Quando cadastro uma entrada de estoque
     Então posso ver na página inicial que houve um aumento no estoque
 
-O usuário deve poder editar estoque
+Não deve ser possível diminuir estoque para números negativos
     Dado que acessei o aplicativo
     E tenho um estoque de produtos cadastrados
-    Quando edito as informações de um produto
-    Então posso ver na página inicial que as informações foram alteradas
+    Quando diminuo o estoque para um numero negativo
+    Então receberei uma mensagem escrito "Estoque insuficiente"
 
-O usuário deve poder editar a data da da compra
+Deve ser possível diminuir estoque para zero
     Dado que acessei o aplicativo
     E tenho um estoque de produtos cadastrados
-    Quando edito a data de compra do produto
+    Quando diminuo o estoque para zero
+    Então posso ver na página inicial que meu estoque é zero
+
+

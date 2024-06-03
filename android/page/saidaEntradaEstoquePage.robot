@@ -8,6 +8,10 @@ ${inputMotivo}                xpath=//android.widget.EditText[@resource-id="br.c
 ${inputDocReferencia}         xpath=//android.widget.EditText[@resource-id="br.com.pztec.estoque:id/txt_referencia"]
 ${botaoSalvarSaida}            xpath=//android.widget.Button[@resource-id="br.com.pztec.estoque:id/btn_salvar"]
 ${inputAdicionarEstoque}    xpath=//android.widget.EditText[@resource-id="br.com.pztec.estoque:id/txt_qtdentrada"]
+${calendarioMesAnterior}    id=android:id/prev
+${botãoOk}        id=android:id/button1
+${modalMensagemErro}        id=android:id/content
+${mensagemEstoqueInsuficiente}    id=android:id/message
 
 
 *** Keywords ***
@@ -38,23 +42,27 @@ Então posso ver na página inicial que houve um aumento no estoque
     Wait Until Element Is Visible    ${estoqueProduto}
     Element Should Contain Text    ${tabela_quantidade_valor}    60.0
 
-Quando edito as informações de um produto
-    Espera o elemento para clicar    ${botãoEditar}
-    Wait Until Element Is Visible    ${campoCodigo}
-    Clear Text    ${campoCodigo}
-    Input Text    ${campoCodigo}    Ipad 12 Apple
-    Swipe By Percent    50    40    50    10
-    Clear Text    ${campoLote}
-    Input Text    ${campoLote}    Lote 22
-    Espera o elemento para clicar    ${botaoSalvar}
+Quando diminuo o estoque para um numero negativo
+    Espera o elemento para clicar    ${botaoSaidaEstoque}
+    Wait Until Element Is Visible    ${pagEstoque}
+    Input Text    ${inputDiminuirEstoque}    51 
+    Input Text    ${inputMotivo}    Venda de produto 
+    Input Text    ${inputDocReferencia}    Nota Fiscal #00
+    Espera o elemento para clicar    ${botaoSalvarSaida}
 
-Então posso ver na página inicial que as informações foram alteradas
+Então receberei uma mensagem escrito "Estoque insuficiente"
+    Wait Until Element Is Visible    ${modalMensagemErro}
+    Element Should Contain Text    ${mensagemEstoqueInsuficiente}    Estoque insuficiente
+    Click Element    ${botãoOk}
+
+Quando diminuo o estoque para zero
+    Espera o elemento para clicar    ${botaoSaidaEstoque}
+    Wait Until Element Is Visible    ${pagEstoque}
+    Input Text    ${inputDiminuirEstoque}    50 
+    Input Text    ${inputMotivo}    Venda de produto 
+    Input Text    ${inputDocReferencia}    Nota Fiscal #00
+    Espera o elemento para clicar    ${botaoSalvarSaida}
+
+Então posso ver na página inicial que meu estoque é zero
     Wait Until Element Is Visible    ${estoqueProduto}
-    Element Should Contain Text    ${tabela_código_valor}    Ipad 12 Apple
-    Element Should Contain Text    ${tabela_lote_valor}    Lote 22
-
-Quando edito a data de compra do produto
-    Espera o elemento para clicar    ${botãoEditar}
-    Wait Until Element Is Visible    ${campoCodigo}
-    Swipe By Percent    50    40    50    10
-    Espera o elemento para clicar    ${campoData}
+    Element Should Contain Text    ${tabela_quantidade_valor}    0.0

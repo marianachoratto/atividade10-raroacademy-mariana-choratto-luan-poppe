@@ -18,11 +18,25 @@ Dado que realizei o cadastro de um produto
 
 E cadastrei um produto
     Espera o elemento para clicar    ${botaoNovo}
-
     Wait Until Element Is Visible    ${campoCodigo}
-
     Input Text    ${campoCodigo}    TV Samsung 55 polegadas
     Input Text    ${campoDescricao}    Televisão QLED com qualidade 4k
+    Input Text    ${campoUnidade}    Unidade 01
+    Input Text    ${campoQuantidade}    50
+    Input Text    ${campoValorUnitario}    4500
+
+    Swipe By Percent    50    40    50    10
+    Input Text    ${campoLote}    Lote 01
+    Espera o elemento para clicar    ${botaoSalvar}
+
+Então devo ter o produto em estoque
+    Wait Until Element Is Visible    ${estoqueProduto}
+    
+Quando cadastro um produto, mas não informo a descrição
+    Espera o elemento para clicar    ${botaoNovo}
+
+    Wait Until Element Is Visible    ${campoCodigo}
+    Input Text    ${campoCodigo}    TV Samsung 55 polegadas
     Input Text    ${campoUnidade}    Unidade 01
     Input Text    ${campoQuantidade}    50
     Input Text    ${campoValorUnitario}    4500
@@ -33,5 +47,43 @@ E cadastrei um produto
 
     Espera o elemento para clicar    ${botaoSalvar}
 
-# Então deve ter o produto em estoque
-    
+# Então o produto não deve ser cadastrado
+#     Wait Until Element Is Visible    ${campoDescricao}
+#     Element Should Be Enabled    ${campoDescricao}
+
+Quando cadastro um produto, mas não informo a quantidade
+    Espera o elemento para clicar    ${botaoNovo}
+
+    Wait Until Element Is Visible    ${campoCodigo}
+
+    Input Text    ${campoCodigo}    TV Samsung 55 polegadas
+    Input Text    ${campoDescricao}    Televisão QLED com qualidade 4k
+    Input Text    ${campoUnidade}    Unidade 01
+    Input Text    ${campoValorUnitario}    4500
+
+    Swipe By Percent    50    40    50    10
+
+    Input Text    ${campoLote}    Lote 01
+
+    Espera o elemento para clicar    ${botaoSalvar}
+
+Quando cadastro um produto, mas não informo o valor unitário
+    Espera o elemento para clicar    ${botaoNovo}
+    Wait Until Element Is Visible    ${campoCodigo}
+    Input Text    ${campoCodigo}    TV Samsung 55 polegadas
+    Input Text    ${campoDescricao}    Televisão QLED com qualidade 4k
+    Input Text    ${campoUnidade}    Unidade 01
+    Input Text    ${campoQuantidade}    50
+
+    Swipe By Percent    50    40    50    10
+    Input Text    ${campoLote}    Lote 01
+    Espera o elemento para clicar    ${botaoSalvar}
+
+Quando cadastro um produto, mas não informo código, unidade e lote
+    Espera o elemento para clicar    ${botaoNovo}
+    Wait Until Element Is Visible    ${campoCodigo}
+    Input Text    ${campoDescricao}    Televisão QLED com qualidade 4k
+    Input Text    ${campoQuantidade}    50
+    Input Text    ${campoValorUnitario}    4500
+    Espera o elemento para clicar    ${botaoSalvar}
+
