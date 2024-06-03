@@ -38,6 +38,32 @@ Dado que realizei a exportação de produtos
     Clicar para voltar no celular
     Clicar para voltar no celular
     Espera o elemento para clicar    ${botaoDeletar}
+    Espera o elemento para clicar    id=android:id/button1
+
+Dado que realizei a exportação de entradas
+    Dado que realizei uma entrada de algum produto
+    Quando usuário acessar a seção de exportar dados
+    Quando executo a funcionalidade de exportar dados
+    Espera o elemento para clicar    ${mensagemSucessoOKExportar}
+    Clicar para voltar no celular
+    Clicar para voltar no celular
+
+Dado que realizei a exportação de saídas
+    Dado que realizei uma saída de algum produto
+    Quando usuário acessar a seção de exportar dados
+    Quando executo a funcionalidade de exportar dados
+    Espera o elemento para clicar    ${mensagemSucessoOKExportar}
+    Clicar para voltar no celular
+    Clicar para voltar no celular
+
+Dado que realizei a exportação de grupos
+    Dado que realizei o cadastro de um produto
+    E que realizei uma alteração nos grupos de produtos
+    E que acessei a seção de exportar dados
+    Quando executo a funcionalidade de exportar dados
+    Espera o elemento para clicar    ${mensagemSucessoOKExportar}
+    Clicar para voltar no celular
+    Clicar para voltar no celular
 
 E que acessei a seção de exportar dados
     # Dado que acessei o aplicativo
