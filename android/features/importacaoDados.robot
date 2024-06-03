@@ -17,3 +17,23 @@ Usuário deve poder importar dados de produtos
     Quando executo a funcionalidade de restaurar produtos
     Então deve ser possível restaurar dados de produtos a partir de exportações realizadas previamente
     E o produto restaurado deve se encontrar na página de produtos
+
+Usuário deve poder importar dados de entradas
+    Dado que realizei uma entrada de algum produto
+    E acessei a seção de importação
+    Quando executo a funcionalidade de restaurar entradas
+    Então deve ser possível restaurar dados de entradas a partir de exportações realizadas previamente
+    # E o produto restaurado deve se encontrar na página de produtos
+
+# Usuário deve poder importar dados de saídas
+#     Dado que realizei a exportação de produtos
+#     E acessei a seção de importar dados
+#     Quando executo a funcionalidade de restaurar produtos
+#     Então deve ser possível restaurar dados de produtos a partir de exportações realizadas previamente
+#     E o produto restaurado deve se encontrar na página de produtos
+# Usuário deve poder importar dados de grupos
+#     Dado que realizei a exportação de produtos
+#     E acessei a seção de importar dados
+#     Quando executo a funcionalidade de restaurar produtos
+#     Então deve ser possível restaurar dados de produtos a partir de exportações realizadas previamente
+#     E o produto restaurado deve se encontrar na página de produtos

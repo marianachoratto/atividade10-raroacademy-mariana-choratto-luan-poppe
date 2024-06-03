@@ -36,6 +36,8 @@ Dado que realizei a exportação de produtos
     Quando executo a funcionalidade de exportar dados
     Espera o elemento para clicar    ${mensagemSucessoOKExportar}
     Clicar para voltar no celular
+    Clicar para voltar no celular
+    Espera o elemento para clicar    ${botaoDeletar}
 
 E que acessei a seção de exportar dados
     # Dado que acessei o aplicativo
