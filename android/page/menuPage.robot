@@ -25,3 +25,6 @@ Acessar exportar dados
     Espera o elemento para clicar    ${botaoExportarDados}
 Acessar importar dados
     Espera o elemento para clicar    ${botaoImportarDados}
+
+Acessar grupo de produtos
+    Espera o elemento para clicar    ${botaoGrupoDeProdutos}

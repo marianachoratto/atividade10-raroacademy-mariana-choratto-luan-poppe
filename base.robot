@@ -14,3 +14,4 @@ Resource    android/page/backupPage.robot
 Resource    android/page/restorePage.robot
 Resource    android/page/saidaEntradaEstoquePage.robot
 Resource    android/page/exportarDadosPage.robot
+Resource    android/page/grupoDeProdutosPage.robot
