@@ -17,24 +17,34 @@ ${mensagemRegistrosRestauradosOK}    xpath=//android.widget.Button[@resource-id=
 
 
 *** Keywords ***
+Selecionar importação
+    [Arguments]    ${arquivoSelecionado}
+    Wait Until Page Contains Element    ${telaEscolherPastaCelular}
+    Swipe para cima Y
+    Espera o elemento para clicar    ${pastaEstoqueCelular}
+    Click Text    ${arquivoSelecionado}
+
 Quando usuário acessar a seção de importar dados
     Acessar Menu
     Acessar importar dados
 
 E acessei a seção de importar dados
-    Acessar importar dados
+    Quando usuário acessar a seção de importar dados
+
+E acessei a seção de importação
+    Quando usuário acessar a seção de importar dados
 
 Quando executo a funcionalidade de restaurar produtos
     Espera o elemento para clicar    ${botaoRestaurarProdutosImportacao}
+
+Quando executo a funcionalidade de restaurar entradas
+    Espera o elemento para clicar    ${botaoRestaurarEntradasImportacao}
 
 Então deve ser possível ver as informações e instruções sobre importação de dados
     Checar se elementos estão visíveis    ${tituloImportacao}    ${botaoRestaurarProdutosImportacao}    ${botaoRestaurarEntradasImportacao}    ${botaoRestaurarSaidasImportacao}    ${botaoRestaurarGruposImportacao}
 
 Então deve ser possível restaurar dados de produtos a partir de exportações realizadas previamente
-    Wait Until Page Contains Element    ${telaEscolherPastaCelular}
-    Swipe para cima Y
-    Espera o elemento para clicar    ${pastaEstoqueCelular}
-    Click Text    produtos.csv
+    Selecionar importação    produtos.csv
     Checar se elementos estão visíveis    ${mensagemRestaurarProdutosTitulo}    ${mensagemRestaurarProdutosDescricao}    ${mensagemRestaurarProdutosBotaoSim}
     Element Text Should Be    ${mensagemRestaurarProdutosTitulo}    ATENÇÃO
     Element Text Should Be    ${mensagemRestaurarProdutosDescricao}    Todos os produtos existentes no cadastro (se houver) serão excluídos e 1 produtos do arquivo CSV serão importados. Tem certeza que deseja executar? Você não poderá desfazer esta operação.
@@ -44,6 +54,10 @@ Então deve ser possível restaurar dados de produtos a partir de exportações 
     Element Text Should Be    ${mensagemRegistrosRestauradosDescricao}    1 registros inseridos.
     Espera o elemento para clicar    ${mensagemRegistrosRestauradosOK}
 
+Então deve ser possível restaurar dados de entradas a partir de exportações realizadas previamente
+    Selecionar importação    entradas.csv
+
 E o produto restaurado deve se encontrar na página de produtos
     Clicar para voltar no celular
     Clicar para voltar no celular
+    Então deve ser possível ver as informações sobre os produtos cadastrados
