@@ -5,6 +5,7 @@ Resource    ../../base.robot
 ${botaoNovo}                   xpath=//android.widget.Button[@resource-id="br.com.pztec.estoque:id/Button1"]
 ${botaoAceitarVersao}          xpath=//android.widget.Button[@resource-id="android:id/button1"]
 ${botaoMenu}                   xpath=//android.widget.Button[@resource-id="br.com.pztec.estoque:id/Button3"]
+${paginaVazia}                 id=br.com.pztec.estoque:id/scrollView1
 
 
 ${botaoSaidaEstoque}           xpath=//android.widget.Button[@resource-id="br.com.pztec.estoque:id/saida"]
@@ -73,7 +74,7 @@ Quando edito a data de compra do produto
     Espera o elemento para clicar    ${campoData}
     Espera o elemento para clicar    ${calendarioMesAnterior}
     Click Text    13
-    Click Element    ${calendarioBotãoOk}
+    Click Element    ${botãoOk}
     Espera o elemento para clicar    ${botaoSalvar}
 
 Então posso visualizar a nova data na página inicial
@@ -83,3 +84,7 @@ Então posso visualizar a nova data na página inicial
 Quando deleto um produto
     Espera o elemento para clicar    ${botaoDeletar}
     Espera o elemento para clicar    ${botãoModalConfirmar}
+
+Então vejo que o produto foi deletado
+    Wait Until Page Contains Element    ${paginaVazia}
+    Page Should Not Contain Element    ${estoqueProduto}

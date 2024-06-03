@@ -9,7 +9,9 @@ ${inputDocReferencia}         xpath=//android.widget.EditText[@resource-id="br.c
 ${botaoSalvarSaida}            xpath=//android.widget.Button[@resource-id="br.com.pztec.estoque:id/btn_salvar"]
 ${inputAdicionarEstoque}    xpath=//android.widget.EditText[@resource-id="br.com.pztec.estoque:id/txt_qtdentrada"]
 ${calendarioMesAnterior}    id=android:id/prev
-${calendarioBotãoOk}        id=android:id/button1
+${botãoOk}        id=android:id/button1
+${modalMensagemErro}        id=android:id/content
+${mensagemEstoqueInsuficiente}    id=android:id/message
 
 
 *** Keywords ***
@@ -39,3 +41,28 @@ Quando cadastro uma entrada de estoque
 Então posso ver na página inicial que houve um aumento no estoque
     Wait Until Element Is Visible    ${estoqueProduto}
     Element Should Contain Text    ${tabela_quantidade_valor}    60.0
+
+Quando diminuo o estoque para um numero negativo
+    Espera o elemento para clicar    ${botaoSaidaEstoque}
+    Wait Until Element Is Visible    ${pagEstoque}
+    Input Text    ${inputDiminuirEstoque}    51 
+    Input Text    ${inputMotivo}    Venda de produto 
+    Input Text    ${inputDocReferencia}    Nota Fiscal #00
+    Espera o elemento para clicar    ${botaoSalvarSaida}
+
+Então receberei uma mensagem escrito "Estoque insuficiente"
+    Wait Until Element Is Visible    ${modalMensagemErro}
+    Element Should Contain Text    ${mensagemEstoqueInsuficiente}    Estoque insuficiente
+    Click Element    ${botãoOk}
+
+Quando diminuo o estoque para zero
+    Espera o elemento para clicar    ${botaoSaidaEstoque}
+    Wait Until Element Is Visible    ${pagEstoque}
+    Input Text    ${inputDiminuirEstoque}    50 
+    Input Text    ${inputMotivo}    Venda de produto 
+    Input Text    ${inputDocReferencia}    Nota Fiscal #00
+    Espera o elemento para clicar    ${botaoSalvarSaida}
+
+Então posso ver na página inicial que meu estoque é zero
+    Wait Until Element Is Visible    ${estoqueProduto}
+    Element Should Contain Text    ${tabela_quantidade_valor}    0.0

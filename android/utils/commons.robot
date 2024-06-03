@@ -42,3 +42,8 @@ Checar se elementos estão habilitados e visíveis
 
 Pegar e formatar data atual
     Run Keyword And Return    Get Current Date    result_format=%d/%m/%Y
+
+Então o produto não deve ser cadastrado
+    [Arguments]    ${elemento}
+    Wait Until Element Is Visible    ${elemento}
+    Element Should Be Enabled    ${elemento}
