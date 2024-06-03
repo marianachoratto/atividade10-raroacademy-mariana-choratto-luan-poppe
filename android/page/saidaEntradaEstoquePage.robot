@@ -25,7 +25,7 @@ Quando cadastro uma saída de estoque
 
 Então posso ver na página inicial que houve uma diminuição no estoque
     Wait Until Element Is Visible    ${estoqueProduto}
-    Element Should Contain Text    ${tabela_quantidade}    49.0
+    Element Should Contain Text    ${tabela_quantidade_valor}    49.0
 
 Quando cadastro uma entrada de estoque
     Espera o elemento para clicar    ${botaoEntradaEstoque}
@@ -36,7 +36,7 @@ Quando cadastro uma entrada de estoque
 
 Então posso ver na página inicial que houve um aumento no estoque
     Wait Until Element Is Visible    ${estoqueProduto}
-    Element Should Contain Text    ${tabela_quantidade}    60.0
+    Element Should Contain Text    ${tabela_quantidade_valor}    60.0
 
 Quando edito as informações de um produto
     Espera o elemento para clicar    ${botãoEditar}
@@ -50,5 +50,11 @@ Quando edito as informações de um produto
 
 Então posso ver na página inicial que as informações foram alteradas
     Wait Until Element Is Visible    ${estoqueProduto}
-    Element Should Contain Text    ${tabela_código}    Ipad 12 Apple
-    Element Should Contain Text    ${tabela_código}    Lote 22
+    Element Should Contain Text    ${tabela_código_valor}    Ipad 12 Apple
+    Element Should Contain Text    ${tabela_lote_valor}    Lote 22
+
+Quando edito a data de compra do produto
+    Espera o elemento para clicar    ${botãoEditar}
+    Wait Until Element Is Visible    ${campoCodigo}
+    Swipe By Percent    50    40    50    10
+    Espera o elemento para clicar    ${campoData}

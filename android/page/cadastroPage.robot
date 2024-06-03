@@ -9,6 +9,7 @@ ${campoQuantidade}    xpath=//android.widget.EditText[@resource-id="br.com.pztec
 ${campoValorUnitario}    xpath=//android.widget.EditText[@resource-id="br.com.pztec.estoque:id/txt_valunit"]
 ${campoLote}    xpath=//android.widget.EditText[@resource-id="br.com.pztec.estoque:id/txt_lote"]
 ${botaoSalvar}    xpath=//android.widget.Button[@resource-id="br.com.pztec.estoque:id/btn_gravar_assunto"]
+${campoData}    xpath=//android.widget.TextView[@resource-id="br.com.pztec.estoque:id/data"]
 
 *** Keywords ***
 Dado que realizei o cadastro de um produto
