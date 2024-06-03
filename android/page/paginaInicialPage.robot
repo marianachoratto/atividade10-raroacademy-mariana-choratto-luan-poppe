@@ -10,7 +10,7 @@ ${botaoMenu}                   xpath=//android.widget.Button[@resource-id="br.co
 ${botaoSaidaEstoque}           xpath=//android.widget.Button[@resource-id="br.com.pztec.estoque:id/saida"]
 ${botaoEntradaEstoque}         xpath=//android.widget.Button[@resource-id="br.com.pztec.estoque:id/entrada"]
 ${botãoEditar}                 xpath=//android.widget.Button[@resource-id="br.com.pztec.estoque:id/editar"]
-${botaoDeletar}            id=br.com.pztec.estoque:id/deletar
+${botaoDeletar}                id=br.com.pztec.estoque:id/deletar
 
 # card do produto
 ${estoqueProduto}             xpath=//android.widget.LinearLayout[@resource-id="br.com.pztec.estoque:id/linha_parte1"]
@@ -26,8 +26,8 @@ ${tabela_lote_valor}          xpath=//android.widget.TextView[@resource-id="br.c
 ${tabela_data_valor}          xpath=//android.widget.TextView[@resource-id="br.com.pztec.estoque:id/txt_validade"]
 
 # confirmar exclusão
-${botãoModalConfirmar}    id=android:id/button1
-${botãoModalNegar}    id=android:id/button2
+${botãoModalConfirmar}        id=android:id/button1
+${botãoModalNegar}            id=android:id/button2
 
 *** Keywords ***
 Dado que acessei o aplicativo
