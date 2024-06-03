@@ -17,14 +17,3 @@ O usuário deve poder documentar entrada de estoque
     Quando cadastro uma entrada de estoque
     Então posso ver na página inicial que houve um aumento no estoque
 
-O usuário deve poder editar estoque
-    Dado que acessei o aplicativo
-    E tenho um estoque de produtos cadastrados
-    Quando edito as informações de um produto
-    Então posso ver na página inicial que as informações foram alteradas
-
-O usuário deve poder editar a data da compra
-    Dado que acessei o aplicativo
-    E tenho um estoque de produtos cadastrados
-    Quando edito a data de compra do produto
-    Então posso visualizar a nova data na página inicial

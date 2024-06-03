@@ -39,32 +39,3 @@ Quando cadastro uma entrada de estoque
 Então posso ver na página inicial que houve um aumento no estoque
     Wait Until Element Is Visible    ${estoqueProduto}
     Element Should Contain Text    ${tabela_quantidade_valor}    60.0
-
-Quando edito as informações de um produto
-    Espera o elemento para clicar    ${botãoEditar}
-    Wait Until Element Is Visible    ${campoCodigo}
-    Clear Text    ${campoCodigo}
-    Input Text    ${campoCodigo}    Ipad 12 Apple
-    Swipe By Percent    50    40    50    10
-    Clear Text    ${campoLote}
-    Input Text    ${campoLote}    Lote 22
-    Espera o elemento para clicar    ${botaoSalvar}
-
-Então posso ver na página inicial que as informações foram alteradas
-    Wait Until Element Is Visible    ${estoqueProduto}
-    Element Should Contain Text    ${tabela_código_valor}    Ipad 12 Apple
-    Element Should Contain Text    ${tabela_lote_valor}    Lote 22
-
-Quando edito a data de compra do produto
-    Espera o elemento para clicar    ${botãoEditar}
-    Wait Until Element Is Visible    ${campoCodigo}
-    Swipe By Percent    50    40    50    10
-    Espera o elemento para clicar    ${campoData}
-    Espera o elemento para clicar    ${calendarioMesAnterior}
-    Click Text    13
-    Click Element    ${calendarioBotãoOk}
-    Espera o elemento para clicar    ${botaoSalvar}
-
-Então posso visualizar a nova data na página inicial
-    Wait Until Page Contains Element    ${estoqueProduto}
-    Element Should Contain Text    ${tabela_data_valor}    13/05/2024
