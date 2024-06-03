@@ -28,3 +28,6 @@ Acessar importar dados
 
 Acessar grupo de produtos
     Espera o elemento para clicar    ${botaoGrupoDeProdutos}
+
+Acessar relatório
+    Espera o elemento para clicar    ${botaoRelatorio}
