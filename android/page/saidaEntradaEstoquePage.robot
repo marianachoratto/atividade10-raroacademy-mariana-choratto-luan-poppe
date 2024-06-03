@@ -8,6 +8,8 @@ ${inputMotivo}                xpath=//android.widget.EditText[@resource-id="br.c
 ${inputDocReferencia}         xpath=//android.widget.EditText[@resource-id="br.com.pztec.estoque:id/txt_referencia"]
 ${botaoSalvarSaida}            xpath=//android.widget.Button[@resource-id="br.com.pztec.estoque:id/btn_salvar"]
 ${inputAdicionarEstoque}    xpath=//android.widget.EditText[@resource-id="br.com.pztec.estoque:id/txt_qtdentrada"]
+${calendarioMesAnterior}    id=android:id/prev
+${calendarioBotãoOk}        id=android:id/button1
 
 
 *** Keywords ***
@@ -58,3 +60,11 @@ Quando edito a data de compra do produto
     Wait Until Element Is Visible    ${campoCodigo}
     Swipe By Percent    50    40    50    10
     Espera o elemento para clicar    ${campoData}
+    Espera o elemento para clicar    ${calendarioMesAnterior}
+    Click Text    13
+    Click Element    ${calendarioBotãoOk}
+    Espera o elemento para clicar    ${botaoSalvar}
+
+Então posso visualizar a nova data na página inicial
+    Wait Until Page Contains Element    ${estoqueProduto}
+    Element Should Contain Text    ${tabela_data_valor}    13/05/2024
