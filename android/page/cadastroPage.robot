@@ -120,4 +120,4 @@ Então posso verificar os 2 produtos criados
     Page Should Contain Text    Computador XP2
 
 Então não encontro o produto pesquisado
-    Page Should Not Contain Element    ${pagEstoque}
+    Page Should Not Contain Element    ${estoqueProduto}
