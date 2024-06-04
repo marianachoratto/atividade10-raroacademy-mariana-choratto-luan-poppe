@@ -58,9 +58,9 @@ Então o backup deve ser gerado com sucesso
     Element Should Be Visible    ${tituloMensagemSucessoBackup}
     Element Should Be Visible    ${textoMensagemSucessoBackup}
     Element Should Be Visible    ${botaoOkMensagemSucessoBackup}
-    Element Text Should Be    ${tituloMensagemSucessoBackup}    Operação concluída!
-    Element Text Should Be    ${textoMensagemSucessoBackup}    Enviar
-    Element Text Should Be    ${botãoOk}    OK
+    AppiumLibrary.Element Text Should Be    ${tituloMensagemSucessoBackup}    Operação concluída!
+    AppiumLibrary.Element Text Should Be    ${textoMensagemSucessoBackup}    Enviar
+    AppiumLibrary.Element Text Should Be    ${botãoOk}    OK
 
 Então o celular deverá mostrar opções de para onde enviar o backup
     Então o celular deverá mostrar opções de para onde enviar o arquivo
