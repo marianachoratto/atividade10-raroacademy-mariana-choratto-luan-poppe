@@ -62,7 +62,7 @@ O usuário deve poder fazer pesquisas pesquisando por outros campos, como quanti
 O usuário não pode criar um produto com preço negativo
     Dado que acessei o aplicativo
     E criei um produto com preço negativo
-    Então encontro o card com o produto pesquisado    ${estoqueProduto}    -.450,00
+    Então encontro o card com o produto pesquisado    ${estoqueProduto}    -.450,00    #esse . fica, se não o teste quebra
 
 # Débito técnico. No celular o usuário não conseque colocar numeros negativos por causa do teclado. Porém no teste é possível o aplicativo salva.
 O usuário não pode criar um produto com quantidade negativa
