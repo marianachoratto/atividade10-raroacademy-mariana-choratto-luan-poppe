@@ -25,16 +25,16 @@ Selecionar importação
     Espera o elemento para clicar    ${pastaEstoqueCelular}
     Click Text    ${arquivoSelecionado}
     Checar se elementos estão visíveis    ${mensagemRestaurarTitulo}    ${mensagemRestaurarDescricao}    ${mensagemRestaurarBotaoSim}
-    Element Text Should Be    ${mensagemRestaurarTitulo}    ATENÇÃO
-    Element Text Should Be    ${mensagemRestaurarDescricao}    ${mensagemDescricao}
+    AppiumLibrary.Element Text Should Be    ${mensagemRestaurarTitulo}    ATENÇÃO
+    AppiumLibrary.Element Text Should Be    ${mensagemRestaurarDescricao}    ${mensagemDescricao}
     Espera o elemento para clicar    ${mensagemRestaurarBotaoSim}
     Checar se elementos estão visíveis    ${mensagemRegistrosRestauradosTitulo}    ${mensagemRegistrosRestauradosDescricao}    ${mensagemRegistrosRestauradosOK}
     
 
 Mensagem de importação bem sucedida
     [Arguments]    ${tituloMensagem}    ${descricaoMensagem}
-    Element Text Should Be    ${mensagemRegistrosRestauradosTitulo}    ${tituloMensagem}
-    Element Text Should Be    ${mensagemRegistrosRestauradosDescricao}    ${descricaoMensagem}
+    AppiumLibrary.Element Text Should Be    ${mensagemRegistrosRestauradosTitulo}    ${tituloMensagem}
+    AppiumLibrary.Element Text Should Be    ${mensagemRegistrosRestauradosDescricao}    ${descricaoMensagem}
     Espera o elemento para clicar    ${mensagemRegistrosRestauradosOK}
 Quando usuário acessar a seção de importar dados
     Acessar Menu

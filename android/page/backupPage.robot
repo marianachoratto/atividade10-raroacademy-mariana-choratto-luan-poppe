@@ -51,19 +51,19 @@ Então deve ser possível ver as informações e instruções sobre backup
     Element Should Be Visible    ${gerarBackup}
     Element Should Be Visible    ${botaoEnviarBackup}
     Element Should Be Visible    ${textoBackup}
-    Element Text Should Be    ${tituloBackup}    Gerar backup
-    Element Text Should Be    ${gerarBackup}    GERAR BACKUP
-    Element Text Should Be    ${botaoEnviarBackup}    ENVIAR
-    Element Text Should Be    ${textoBackup}    Envie o arquivo de backup para o drive virtual. Caso tenha problemas com seu aparelho seus dados poderão ser restaurados. Atenção, não altere o arquivo original, sob o risco de não conseguir restaurá-lo novamente.
+    AppiumLibrary.Element Text Should Be    ${tituloBackup}    Gerar backup
+    AppiumLibrary.Element Text Should Be    ${gerarBackup}    GERAR BACKUP
+    AppiumLibrary.Element Text Should Be    ${botaoEnviarBackup}    ENVIAR
+    AppiumLibrary.Element Text Should Be    ${textoBackup}    Envie o arquivo de backup para o drive virtual. Caso tenha problemas com seu aparelho seus dados poderão ser restaurados. Atenção, não altere o arquivo original, sob o risco de não conseguir restaurá-lo novamente.
 
 Então o backup deve ser gerado com sucesso
     Wait Until Element Is Visible    ${tituloMensagemSucessoBackup}
     Element Should Be Visible    ${tituloMensagemSucessoBackup}
     Element Should Be Visible    ${textoMensagemSucessoBackup}
     Element Should Be Visible    ${botaoOkMensagemSucessoBackup}
-    Element Text Should Be    ${tituloMensagemSucessoBackup}    Operação concluída!
-    Element Text Should Be    ${textoMensagemSucessoBackup}    Enviar
-    Element Text Should Be    ${botaoOkMensagemSucessoBackup}    OK
+    AppiumLibrary.Element Text Should Be    ${tituloMensagemSucessoBackup}    Operação concluída!
+    AppiumLibrary.Element Text Should Be    ${textoMensagemSucessoBackup}    Enviar
+    AppiumLibrary.Element Text Should Be    ${botaoOkMensagemSucessoBackup}    OK
 
 Então o celular deverá mostrar opções de para onde enviar o backup
     Então o celular deverá mostrar opções de para onde enviar o arquivo
