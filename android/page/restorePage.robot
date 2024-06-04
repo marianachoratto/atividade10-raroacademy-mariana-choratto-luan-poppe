@@ -32,12 +32,10 @@ Quando executar a funcinoalidade de selecionar arquivo
 Então deve ser possível ver as informações e instruções sobre restore de backup
     Wait Until Page Contains Element    ${telaRestore}
 
-    Element Should Be Visible    ${tituloRestore}
-    Element Should Be Visible    ${descricaoRestore}
-    Element Should Be Visible    ${botaoSelecionarArquivoRestore}
-    Element Text Should Be    ${tituloRestore}    Restaurar backup
-    Element Text Should Be    ${descricaoRestore}    Atenção: você só deve executar esta operação caso tenha trocado de aparelho ou reinstalado o aplicativo.
-    Element Text Should Be    ${botaoSelecionarArquivoRestore}    SELECIONAR ARQUIVO
+    Checar se elementos estão visíveis    ${tituloRestore}    ${descricaoRestore}    ${botaoSelecionarArquivoRestore}
+    AppiumLibrary.Element Text Should Be    ${tituloRestore}    Restaurar backup
+    AppiumLibrary.Element Text Should Be    ${descricaoRestore}    Atenção: você só deve executar esta operação caso tenha trocado de aparelho ou reinstalado o aplicativo.
+    AppiumLibrary.Element Text Should Be    ${botaoSelecionarArquivoRestore}    SELECIONAR ARQUIVO
 
 Então deve ser possível restaurar um backup a partir do backup previamente criado
     Wait Until Page Contains Element    ${telaEscolherPastaCelular}

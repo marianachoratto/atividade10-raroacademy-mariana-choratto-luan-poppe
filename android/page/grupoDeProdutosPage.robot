@@ -18,7 +18,7 @@ E que realizei uma alteração nos grupos de produtos
     Acessar Menu
     Acessar grupo de produtos
     Espera o elemento para clicar    ${adicionarGrupoProdutos}
-    Input Text    ${campoNomeGrupoProdutos}    Nome do Grupo
+    Espera o elemento para fazer o inputtext    ${campoNomeGrupoProdutos}    Nome do Grupo
     Espera o elemento para clicar    ${botaoSalvarGrupoProdutos}
     Clicar para voltar no celular
     Clicar para voltar no celular
