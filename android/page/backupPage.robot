@@ -3,16 +3,16 @@ Resource    ../../base.robot
 Library    String
 
 *** Variables ***
-${telaBackup}    xpath=//android.widget.FrameLayout[@resource-id="android:id/content"]/android.widget.LinearLayout
-${tituloBackup}    xpath=//android.widget.TextView[@resource-id="br.com.pztec.estoque:id/textView3"]
-${propagandaBackup}    xpath=//android.webkit.WebView
-${gerarBackup}    xpath=//android.widget.Button[@resource-id="br.com.pztec.estoque:id/btn_gerar"]
-${botaoEnviarBackup}    xpath=//android.widget.Button[@resource-id="br.com.pztec.estoque:id/btn_send"]
-${textoBackup}    xpath=//android.widget.TextView[@resource-id="br.com.pztec.estoque:id/textView4"]
-${infoUltimoBackup}    xpath=//android.widget.TextView[@resource-id="br.com.pztec.estoque:id/datafile"]
-${tituloMensagemSucessoBackup}    xpath=//android.widget.TextView[@resource-id="android:id/alertTitle"]
-${textoMensagemSucessoBackup}    xpath=//android.widget.TextView[@resource-id="android:id/message"]
-${botaoOkMensagemSucessoBackup}    xpath=//android.widget.Button[@resource-id="android:id/button1"]
+${telaBackup}                            id=android:id/content
+${tituloBackup}                          id=br.com.pztec.estoque:id/textView3
+${propagandaBackup}                      xpath=//android.webkit.WebView
+${gerarBackup}                           id=br.com.pztec.estoque:id/btn_gerar
+${botaoEnviarBackup}                     id=br.com.pztec.estoque:id/btn_send
+${textoBackup}                           id=br.com.pztec.estoque:id/textView4
+${infoUltimoBackup}                      id=br.com.pztec.estoque:id/datafile
+${tituloMensagemSucessoBackup}           id=android:id/alertTitle
+${textoMensagemSucessoBackup}            id=android:id/message
+${botaoOkMensagemSucessoBackup}          id=android:id/button1
 
 *** Keywords ***
 Dado que acessei a seção de backup

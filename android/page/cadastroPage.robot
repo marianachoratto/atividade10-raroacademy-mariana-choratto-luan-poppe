@@ -2,14 +2,14 @@
 Resource    ../../base.robot
 
 *** Variables ***
-${campoCodigo}    xpath=//android.widget.EditText[@resource-id="br.com.pztec.estoque:id/txt_codigo"]
-${campoDescricao}    xpath=//android.widget.EditText[@resource-id="br.com.pztec.estoque:id/txt_descricao"]
-${campoUnidade}    xpath=//android.widget.EditText[@resource-id="br.com.pztec.estoque:id/txt_unidade"]
-${campoQuantidade}    xpath=//android.widget.EditText[@resource-id="br.com.pztec.estoque:id/txt_quantidade"]
-${campoValorUnitario}    xpath=//android.widget.EditText[@resource-id="br.com.pztec.estoque:id/txt_valunit"]
-${campoLote}    xpath=//android.widget.EditText[@resource-id="br.com.pztec.estoque:id/txt_lote"]
-${botaoSalvar}    xpath=//android.widget.Button[@resource-id="br.com.pztec.estoque:id/btn_gravar_assunto"]
-${campoData}    xpath=//android.widget.TextView[@resource-id="br.com.pztec.estoque:id/data"]
+${campoCodigo}             id=br.com.pztec.estoque:id/txt_codigo
+${campoDescricao}          id=br.com.pztec.estoque:id/txt_descricao
+${campoUnidade}            id=br.com.pztec.estoque:id/txt_unidade
+${campoQuantidade}         id=br.com.pztec.estoque:id/txt_quantidade
+${campoValorUnitario}      id=br.com.pztec.estoque:id/txt_valunit
+${campoLote}               id=br.com.pztec.estoque:id/txt_lote
+${campoData}               id=br.com.pztec.estoque:id/data
+${botaoSalvar}             id=br.com.pztec.estoque:id/btn_gravar_assunto
 
 *** Keywords ***
 Dado que realizei o cadastro de um produto

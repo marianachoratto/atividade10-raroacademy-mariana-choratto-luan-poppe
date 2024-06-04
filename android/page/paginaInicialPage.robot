@@ -4,6 +4,8 @@ Resource    ../../base.robot
 *** Variables ***
 ${botaoNovo}                   id=br.com.pztec.estoque:id/Button1
 ${botaoMenu}                   id=br.com.pztec.estoque:id/Button3
+# xpath otiginal
+# ${botaoMenu}                   xpath=//android.widget.Button[@resource-id="br.com.pztec.estoque:id/Button3"]
 ${paginaVazia}                 id=br.com.pztec.estoque:id/scrollView1
 
 # botões de modais
@@ -17,7 +19,7 @@ ${inputPesquisa}               id=android:id/search_src_text
 ${botaoPesquisa}               id=android:id/search_button
 
 ${botaoSaidaEstoque}           id=br.com.pztec.estoque:id/saida           
-${botaoEntradaEstoque}          id=br.com.pztec.estoque:id/entrada        
+${botaoEntradaEstoque}         id=br.com.pztec.estoque:id/entrada        
 ${botãoEditar}                 id=br.com.pztec.estoque:id/editar
 ${botaoDeletar}                id=br.com.pztec.estoque:id/deletar
 

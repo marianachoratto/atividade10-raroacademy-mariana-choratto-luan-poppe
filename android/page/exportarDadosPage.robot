@@ -3,24 +3,24 @@ Resource    ../../base.robot
 Library    XML
 
 *** Variables ***
-${telaExportar}    xpath=//android.widget.FrameLayout[@resource-id="android:id/content"]/android.widget.LinearLayout
-${tituloExportar}    xpath=//android.widget.TextView[@resource-id="br.com.pztec.estoque:id/textView3"]
-${descricaoExportar}    xpath=//android.widget.TextView[@resource-id="br.com.pztec.estoque:id/textView4"]
-${botaoExportarDadosExportar}    xpath=//android.widget.Button[@resource-id="br.com.pztec.estoque:id/btn_gerar"]
-${propagandaExportar}    xpath=//android.view.ViewGroup[@resource-id="br.com.pztec.estoque:id/adView_exportar"]/android.widget.FrameLayout/android.widget.FrameLayout/android.widget.FrameLayout/android.webkit.WebView/android.webkit.WebView/android.view.View/android.widget.TextView
-${mensagemErroPDFNaoGerado}    xpath=//android.widget.Toast[@text="O arquivo PDF ainda não foi gerado!"]
-${mensagemSucessoTituloExportar}    xpath=//android.widget.TextView[@resource-id="android:id/alertTitle"]
-${mensagemSucessoDescricaoExportar}    xpath=//android.widget.TextView[@resource-id="android:id/message"]
-${mensagemSucessoOKExportar}    xpath=//android.widget.Button[@resource-id="android:id/button1"]
-${historicoExportacaoTextoProduto}    xpath=//android.widget.TextView[@resource-id="br.com.pztec.estoque:id/datafileprod"]
-${botaoEnviarExportacaoProduto}    xpath=//android.widget.Button[@resource-id="br.com.pztec.estoque:id/btn_prod"]
-${historicoExportacaoTextoEntrada}    xpath=//android.widget.TextView[@resource-id="br.com.pztec.estoque:id/datafileent"]
-${botaoEnviarExportacaoEntrada}    xpath=//android.widget.Button[@resource-id="br.com.pztec.estoque:id/btn_ent"]
-${historicoExportacaoTextoSaida}    xpath=//android.widget.TextView[@resource-id="br.com.pztec.estoque:id/datafilesai"]
-${botaoEnviarExportacaoSaida}    xpath=//android.widget.Button[@resource-id="br.com.pztec.estoque:id/btn_sai"]
-${historicoExportacaoTextoGrupos}    xpath=//android.widget.TextView[@resource-id="br.com.pztec.estoque:id/datafilegrupo"]
-${botaoEnviarExportacaoGrupos}    xpath=//android.widget.Button[@resource-id="br.com.pztec.estoque:id/btn_grupo"]
+${telaExportar}                        id=android:id/content
+${tituloExportar}                      id=br.com.pztec.estoque:id/textView3
+${descricaoExportar}                   id=br.com.pztec.estoque:id/textView4
+${mensagemSucessoTituloExportar}       id=android:id/alertTitle
+${historicoExportacaoTextoProduto}     id=br.com.pztec.estoque:id/datafileprod
+${mensagemSucessoDescricaoExportar}    id=android:id/message
+${historicoExportacaoTextoEntrada}     id=br.com.pztec.estoque:id/datafileent
+${historicoExportacaoTextoSaida}       id=br.com.pztec.estoque:id/datafilesai
+${historicoExportacaoTextoGrupos}      id=br.com.pztec.estoque:id/datafilegrupo
+${mensagemErroPDFNaoGerado}            xpath=//android.widget.Toast[@text="O arquivo PDF ainda não foi gerado!"]
+${botaoExportarDadosExportar}          id=br.com.pztec.estoque:id/btn_gerar
+${mensagemSucessoOKExportar}           id=android:id/button1
+${botaoEnviarExportacaoProduto}        id=br.com.pztec.estoque:id/btn_prod
+${botaoEnviarExportacaoEntrada}        id=br.com.pztec.estoque:id/btn_ent
+${botaoEnviarExportacaoSaida}          id=br.com.pztec.estoque:id/btn_sai
+${botaoEnviarExportacaoGrupos}         id=br.com.pztec.estoque:id/btn_grupo
 
+${propagandaExportar}               xpath=//android.view.ViewGroup[@resource-id="br.com.pztec.estoque:id/adView_exportar"]/android.widget.FrameLayout/android.widget.FrameLayout/android.widget.FrameLayout/android.webkit.WebView/android.webkit.WebView/android.view.View/android.widget.TextView
 
 @{listaHistoricoExportar}    xpath=//android.widget.FrameLayout[@resource-id="android:id/content"]/android.widget.LinearLayout/android.widget.LinearLayout
 
