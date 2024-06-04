@@ -2,8 +2,7 @@
 Resource    ../../base.robot
 
 Test Setup        Abrir App
-Test Teardown     Teardown    
-
+Test Teardown     Teardown
 
 *** Test Cases ***
 Usuário deve poder cadastrar um produto
