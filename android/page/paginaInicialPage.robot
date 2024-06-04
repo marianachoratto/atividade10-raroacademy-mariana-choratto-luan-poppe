@@ -46,7 +46,7 @@ Dado que acessei o aplicativo
     END
 
 Acessar Menu
-    Wait Until Page Contains Element    ${botaoMenu}
+    Wait Until Keyword Succeeds    4    1    Wait Until Page Contains Element    ${botaoMenu}
     Wait Until Keyword Succeeds    4    1    Espera o elemento para clicar    ${botaoMenu}
 
 Então deve ser possível ver as informações sobre os produtos cadastrados
