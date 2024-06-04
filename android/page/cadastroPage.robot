@@ -104,7 +104,7 @@ Criar produto
     [Arguments]    ${nome}    ${quantidade}    ${preco}
     Dado que acessei o aplicativo
     Espera o elemento para clicar    ${botaoNovo}
-    Input Text    ${campoDescricao}    ${nome}
+    Wait Until Keyword Succeeds    4    1    Input Text    ${campoDescricao}    ${nome}
     Input Text    ${campoQuantidade}    ${quantidade}
     Input Text    ${campoValorUnitario}    ${preco}
     Espera o elemento para clicar    ${botaoSalvar}

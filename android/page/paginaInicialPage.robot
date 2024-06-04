@@ -104,7 +104,7 @@ Quando pesquiso por um produto
     Wait Until Page Contains Element    ${estoqueProduto}        
     Click Element    ${botaoPesquisa} 
     Input Text    ${inputPesquisa}    ${valorPesquisado}    
-    Press Keycode    66
+    Clicar enter no celular
 
 Então o produto de pesquisa aparece
     Espera o elemento e checa o texto    ${estoqueProduto}    Computador XP1

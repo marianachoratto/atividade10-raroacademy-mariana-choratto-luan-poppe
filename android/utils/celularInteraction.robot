@@ -15,6 +15,9 @@ ${botaoOkCalendario}    id=android:id/button1
 Clicar para voltar no celular
     Press Keycode    4
 
+Clicar enter no celular
+    Press Keycode    66
+
 Então o celular deverá mostrar opções de para onde enviar o arquivo
     Wait Until Page Contains Element    ${celularEnviarArquivoHeader}
     Checar se elementos estão visíveis    ${celularEnviarArquivoHeader}    ${celularEnviarArquivoBody}
