@@ -26,3 +26,15 @@ Deve ser possível cadastrar um produto sem informar código, unidade e lote
     Dado que acessei o aplicativo
     Quando cadastro um produto, mas não informo código, unidade e lote
     Então devo ter o produto em estoque
+    
+Deve ser possível cadastrar vários produtos
+    Dado que acessei o aplicativo
+    E criei 2 produtos
+    Então posso verificar os 2 produtos criados
+
+
+Deve ser possível cadastrar produto com valores limítrofes
+    [Template]    Criar e verificar produto
+    Computador XP35    10    300
+    Computador XP40     0    300
+    Computador XP45    10    0

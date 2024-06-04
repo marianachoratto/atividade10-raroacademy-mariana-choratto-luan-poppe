@@ -6,7 +6,7 @@ Test Teardown     Teardown
 
 
 *** Test Cases ***
-Cadastrar um produto
+Usuário deve poder cadastrar um produto
     Dado que acessei o aplicativo
     E cadastrei um produto
     Então devo ter o produto em estoque
@@ -33,3 +33,12 @@ O usuário deve poder deletar um produto cadastrado
     E tenho um estoque de produtos cadastrados
     Quando deleto um produto
     Então vejo que o produto foi deletado
+
+O usuário deve poder fazer uma pesquisa de produtos
+    Dado que acessei o aplicativo
+    E criei 2 produtos
+    Quando pesquiso por um produto    Computador XP1
+    Então o produto de pesquisa aparece
+
+# O usuário não deve encontrar resultados se pesquisar por um produto não cadastrado
+

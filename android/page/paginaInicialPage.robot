@@ -6,7 +6,8 @@ ${botaoNovo}                   xpath=//android.widget.Button[@resource-id="br.co
 ${botaoAceitarVersao}          xpath=//android.widget.Button[@resource-id="android:id/button1"]
 ${botaoMenu}                   xpath=//android.widget.Button[@resource-id="br.com.pztec.estoque:id/Button3"]
 ${paginaVazia}                 id=br.com.pztec.estoque:id/scrollView1
-
+${inputPesquisa}               id=android:id/search_src_text
+${botaoPesquisa}               id=android:id/search_button
 
 ${botaoSaidaEstoque}           xpath=//android.widget.Button[@resource-id="br.com.pztec.estoque:id/saida"]
 ${botaoEntradaEstoque}         xpath=//android.widget.Button[@resource-id="br.com.pztec.estoque:id/entrada"]
@@ -32,8 +33,16 @@ ${botãoModalNegar}            id=android:id/button2
 
 *** Keywords ***
 Dado que acessei o aplicativo
-    Wait Until Page Contains Element    ${botaoAceitarVersao}
-    Wait Until Keyword Succeeds    4    1    Espera o elemento para clicar    ${botaoAceitarVersao}
+    # ${isOkVisible}=    Run Keyword And Return Status    Wait Until Element Is Visible    ${botaoAceitarVersao}        
+    ${isOkVisible}=    Run Keyword And Return Status    Wait Until Keyword Succeeds    3    1    Espera o elemento para clicar    ${botaoAceitarVersao}        
+    
+    IF    '${isOkVisible}'== ${True}
+        Espera o elemento para clicar    ${botaoAceitarVersao}
+    ELSE
+        Log    continue
+    END
+    # Wait Until Page Contains Element    ${botaoAceitarVersao}
+    # Wait Until Keyword Succeeds    4    1    Espera o elemento para clicar    ${botaoAceitarVersao}
 
 Acessar Menu
     Wait Until Page Contains Element    ${botaoMenu}
@@ -88,3 +97,15 @@ Quando deleto um produto
 Então vejo que o produto foi deletado
     Wait Until Page Contains Element    ${paginaVazia}
     Page Should Not Contain Element    ${estoqueProduto}
+
+Quando pesquiso por um produto
+    [Arguments]    ${valorPesquisado}
+    Wait Until Page Contains Element    ${estoqueProduto}        
+    Click Element    ${botaoPesquisa} 
+    Input Text    ${inputPesquisa}    ${valorPesquisado}    
+    Press Keycode    66
+
+Então o produto de pesquisa aparece
+    Wait Until Page Contains Element    ${estoqueProduto}
+    Page Should Contain Text    Computador XP1
+    Page Should Not Contain Text    ComputadorXP2    

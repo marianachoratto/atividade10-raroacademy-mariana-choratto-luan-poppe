@@ -87,3 +87,38 @@ Quando cadastro um produto, mas não informo código, unidade e lote
     Input Text    ${campoValorUnitario}    4500
     Espera o elemento para clicar    ${botaoSalvar}
 
+# Então o produto deve ser criado
+#     [Arguments]    ${elemento}
+#     Wait Until Element Is Visible    ${elemento}
+
+Criar e verificar produto
+    [Arguments]    ${nome}    ${quantidade}    ${preco}
+    Dado que acessei o aplicativo
+    Espera o elemento para clicar    ${botaoNovo}
+    Input Text    ${campoDescricao}    ${nome}
+    Input Text    ${campoQuantidade}    ${quantidade}
+    Input Text    ${campoValorUnitario}    ${preco}
+    Espera o elemento para clicar    ${botaoSalvar}
+    Wait Until Element Is Visible    ${estoqueProduto}
+    Element Should Contain Text    ${tabela_descricao_valor}    ${nome}
+    Element Should Contain Text    ${tabela_quantidade_valor}    ${quantidade}
+    Element Should Contain Text    ${tabela_valor_unit_valor}    ${preco},00
+
+Criar produto
+    [Arguments]    ${nome}    ${quantidade}    ${preco}
+    Dado que acessei o aplicativo
+    Espera o elemento para clicar    ${botaoNovo}
+    Input Text    ${campoDescricao}    ${nome}
+    Input Text    ${campoQuantidade}    ${quantidade}
+    Input Text    ${campoValorUnitario}    ${preco}
+    Espera o elemento para clicar    ${botaoSalvar}
+
+
+E criei 2 produtos
+    FOR    ${counter}    IN RANGE    1    3
+        Criar produto    Computador XP${counter}    1${counter}    30${counter}
+    END
+
+Então posso verificar os 2 produtos criados
+    Page Should Contain Text    Computador XP1
+    Page Should Contain Text    Computador XP2
