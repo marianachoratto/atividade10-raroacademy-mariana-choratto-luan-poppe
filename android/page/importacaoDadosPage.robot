@@ -69,6 +69,11 @@ Quando executo a funcionalidade de restaurar grupos
 
 Então deve ser possível ver as informações e instruções sobre importação de dados
     Wait Until Keyword Succeeds    4    1    Checar se elementos estão visíveis    ${tituloImportacao}    ${botaoRestaurarProdutosImportacao}    ${botaoRestaurarEntradasImportacao}    ${botaoRestaurarSaidasImportacao}    ${botaoRestaurarGruposImportacao}
+    Element Should Contain Text    ${tituloImportacao}    Importar dados
+    Element Should Contain Text    ${botaoRestaurarProdutosImportacao}    RESTAURAR PRODUTOS
+    Element Should Contain Text    ${botaoRestaurarEntradasImportacao}    RESTAURAR ENTRADAS
+    Element Should Contain Text    ${botaoRestaurarSaidasImportacao}    RESTAURAR SAÍDAS
+    Element Should Contain Text    ${botaoRestaurarGruposImportacao}    GRUPO DE PRODUTOS
 
 Então deve ser possível restaurar dados de produtos a partir de exportações realizadas previamente
     Selecionar importação    produtos.csv    Todos os produtos existentes no cadastro (se houver) serão excluídos e 1 produtos do arquivo CSV serão importados. Tem certeza que deseja executar? Você não poderá desfazer esta operação.
