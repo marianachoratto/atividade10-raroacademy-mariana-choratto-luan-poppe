@@ -32,8 +32,7 @@ ${botãoModalConfirmar}        id=android:id/button1
 ${botãoModalNegar}            id=android:id/button2
 
 *** Keywords ***
-Dado que acessei o aplicativo
-    # ${isOkVisible}=    Run Keyword And Return Status    Wait Until Element Is Visible    ${botaoAceitarVersao}        
+Dado que acessei o aplicativo        
     ${isOkVisible}=    Run Keyword And Return Status    Wait Until Keyword Succeeds    3    1    Espera o elemento para clicar    ${botaoAceitarVersao}        
     
     IF    '${isOkVisible}'== ${True}
@@ -41,8 +40,6 @@ Dado que acessei o aplicativo
     ELSE
         Log    continue
     END
-    # Wait Until Page Contains Element    ${botaoAceitarVersao}
-    # Wait Until Keyword Succeeds    4    1    Espera o elemento para clicar    ${botaoAceitarVersao}
 
 Acessar Menu
     Wait Until Page Contains Element    ${botaoMenu}
@@ -106,6 +103,32 @@ Quando pesquiso por um produto
     Press Keycode    66
 
 Então o produto de pesquisa aparece
-    Wait Until Page Contains Element    ${estoqueProduto}
-    Page Should Contain Text    Computador XP1
-    Page Should Not Contain Text    ComputadorXP2    
+    Espera o elemento e checa o texto    ${estoqueProduto}    Computador XP1
+    Page Should Not Contain Text    ComputadorXP2
+
+Então encontro o card com o produto pesquisado
+    [Arguments]    ${elemento}    ${texto}
+    Wait Until Page Contains Element    ${elemento}
+    Page Should Contain Text    ${texto}
+
+E criei um produto com preço negativo
+    Espera o elemento para clicar    ${botaoNovo}
+    Wait Until Element Is Visible    ${campoCodigo}
+    Input Text    ${campoCodigo}    TV Samsung 55 polegadas
+    Input Text    ${campoDescricao}    Televisão QLED com qualidade 4k
+    Input Text    ${campoQuantidade}    50
+    Input Text    ${campoValorUnitario}    -450
+
+    Swipe By Percent    50    40    50    10
+    Espera o elemento para clicar    ${botaoSalvar}
+
+E criei um produto com quantidade negativa
+        Espera o elemento para clicar    ${botaoNovo}
+    Wait Until Element Is Visible    ${campoCodigo}
+    Input Text    ${campoCodigo}    TV Samsung 55 polegadas
+    Input Text    ${campoDescricao}    Televisão QLED com qualidade 4k
+    Input Text    ${campoQuantidade}    -99
+    Input Text    ${campoValorUnitario}    450
+
+    Swipe By Percent    50    40    50    10
+    Espera o elemento para clicar    ${botaoSalvar}    

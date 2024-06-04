@@ -40,5 +40,32 @@ O usuário deve poder fazer uma pesquisa de produtos
     Quando pesquiso por um produto    Computador XP1
     Então o produto de pesquisa aparece
 
-# O usuário não deve encontrar resultados se pesquisar por um produto não cadastrado
+O usuário não deve encontrar resultados se pesquisar por um produto não cadastrado
+    Dado que acessei o aplicativo
+    E criei 2 produtos
+    Quando pesquiso por um produto    TV Samsung
+    Então não encontro o produto pesquisado
 
+O usuário deve poder fazer pesquisas pesquisando por outros campos, como preço
+    Dado que acessei o aplicativo
+    E criei 2 produtos
+    Quando pesquiso por um produto    301
+    Então encontro o card com o produto pesquisado    ${estoqueProduto}    301,00
+
+O usuário deve poder fazer pesquisas pesquisando por outros campos, como quantidade
+    Dado que acessei o aplicativo
+    E criei 2 produtos
+    Quando pesquiso por um produto    12
+    Então encontro o card com o produto pesquisado    ${estoqueProduto}    12
+
+# Débito técnico. No celular o usuário não conseque colocar numeros negativos por causa do teclado. Porém no teste é possível o aplicativo salva. 
+O usuário não pode criar um produto com preço negativo
+    Dado que acessei o aplicativo
+    E criei um produto com preço negativo
+    Então encontro o card com o produto pesquisado    ${estoqueProduto}    -.450,00
+
+# Débito técnico. No celular o usuário não conseque colocar numeros negativos por causa do teclado. Porém no teste é possível o aplicativo salva.
+O usuário não pode criar um produto com quantidade negativa
+    Dado que acessei o aplicativo
+    E criei um produto com quantidade negativa
+    Então encontro o card com o produto pesquisado    ${estoqueProduto}    -99

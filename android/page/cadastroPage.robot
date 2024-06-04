@@ -47,10 +47,6 @@ Quando cadastro um produto, mas não informo a descrição
 
     Espera o elemento para clicar    ${botaoSalvar}
 
-# Então o produto não deve ser cadastrado
-#     Wait Until Element Is Visible    ${campoDescricao}
-#     Element Should Be Enabled    ${campoDescricao}
-
 Quando cadastro um produto, mas não informo a quantidade
     Espera o elemento para clicar    ${botaoNovo}
 
@@ -122,3 +118,6 @@ E criei 2 produtos
 Então posso verificar os 2 produtos criados
     Page Should Contain Text    Computador XP1
     Page Should Contain Text    Computador XP2
+
+Então não encontro o produto pesquisado
+    Page Should Not Contain Element    ${pagEstoque}
