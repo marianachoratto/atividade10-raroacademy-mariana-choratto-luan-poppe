@@ -21,7 +21,7 @@ E tenho um estoque de produtos cadastrados
 
 Quando cadastro uma saída de estoque
     Espera o elemento para clicar    ${botaoSaidaEstoque}
-    Wait Until Element Is Visible    ${pagEstoque}
+    Wait Until Keyword Succeeds    4    1    Wait Until Element Is Visible    ${pagEstoque}
     Input Text    ${inputDiminuirEstoque}    1 
     Input Text    ${inputMotivo}    Venda de produto 
     Input Text    ${inputDocReferencia}    Nota Fiscal #01
