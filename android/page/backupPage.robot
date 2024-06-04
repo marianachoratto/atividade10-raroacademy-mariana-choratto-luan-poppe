@@ -46,11 +46,8 @@ Quando executar a funcinoalidade de enviar backup
 Então deve ser possível ver as informações e instruções sobre backup
     Wait Until Page Contains Element    ${telaBackup}
 
-    Element Should Be Visible    ${tituloBackup}
+    Checar se elementos estão visíveis    ${tituloBackup}    ${gerarBackup}    ${botaoEnviarBackup}    ${textoBackup}
     Wait Until Keyword Succeeds    4    1    Element Should Be Visible    ${propagandaBackup}
-    Element Should Be Visible    ${gerarBackup}
-    Element Should Be Visible    ${botaoEnviarBackup}
-    Element Should Be Visible    ${textoBackup}
     AppiumLibrary.Element Text Should Be    ${tituloBackup}    Gerar backup
     AppiumLibrary.Element Text Should Be    ${gerarBackup}    GERAR BACKUP
     AppiumLibrary.Element Text Should Be    ${botaoEnviarBackup}    ENVIAR
@@ -58,9 +55,7 @@ Então deve ser possível ver as informações e instruções sobre backup
 
 Então o backup deve ser gerado com sucesso
     Wait Until Element Is Visible    ${tituloMensagemSucessoBackup}
-    Element Should Be Visible    ${tituloMensagemSucessoBackup}
-    Element Should Be Visible    ${textoMensagemSucessoBackup}
-    Element Should Be Visible    ${botaoOkMensagemSucessoBackup}
+    Checar se elementos estão visíveis    ${tituloMensagemSucessoBackup}    ${textoMensagemSucessoBackup}    ${botaoOkMensagemSucessoBackup}
     AppiumLibrary.Element Text Should Be    ${tituloMensagemSucessoBackup}    Operação concluída!
     AppiumLibrary.Element Text Should Be    ${textoMensagemSucessoBackup}    Enviar
     AppiumLibrary.Element Text Should Be    ${botaoOkMensagemSucessoBackup}    OK
