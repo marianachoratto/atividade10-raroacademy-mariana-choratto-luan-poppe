@@ -38,3 +38,5 @@ Deve ser possível cadastrar produto com valores limítrofes
     Computador XP35    10    300
     Computador XP40     0    300
     Computador XP45    10    0
+
+# Deve ser possível criar produtos com letras ao invés de numero nos campos de quantidade e preço

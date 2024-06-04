@@ -2,15 +2,17 @@
 Resource    ../../base.robot
 
 *** Variables ***
-${telaRestore}    xpath=//android.widget.FrameLayout[@resource-id="android:id/content"]/android.widget.LinearLayout
-${tituloRestore}    xpath=//android.widget.TextView[@resource-id="br.com.pztec.estoque:id/textView3"]
-${descricaoRestore}    xpath=//android.widget.TextView[@resource-id="br.com.pztec.estoque:id/lbl_mensagem"]
-${botaoSelecionarArquivoRestore}    xpath=//android.widget.Button[@resource-id="br.com.pztec.estoque:id/btn_procurar"]
-${telaEscolherPastaCelular}    xpath=/hierarchy/android.widget.FrameLayout
-${pastaEstoqueCelular}    xpath=//android.widget.TextView[@resource-id="android:id/text1" and @text="Estoque"]
-${mensagemSucessoTituloRestore}    xpath=//android.widget.TextView[@resource-id="android:id/alertTitle"]
-${mensagemSucessoTextoRestore}    xpath=//android.widget.FrameLayout[@resource-id="android:id/contentPanel"]
-${mensagemSucessoOKRestore}    xpath=//android.widget.Button[@resource-id="android:id/button1"]
+${tituloRestore}                    id=br.com.pztec.estoque:id/textView3
+${descricaoRestore}                 id=br.com.pztec.estoque:id/lbl_mensagem
+${mensagemSucessoTituloRestore}     id=android:id/alertTitle
+${mensagemSucessoOKRestore}         id=android:id/button1
+${botaoSelecionarArquivoRestore}    id=br.com.pztec.estoque:id/btn_procurar
+
+
+${mensagemSucessoTextoRestore}      xpath=//android.widget.FrameLayout[@resource-id="android:id/contentPanel"]
+${telaEscolherPastaCelular}         xpath=/hierarchy/android.widget.FrameLayout
+${pastaEstoqueCelular}              xpath=//android.widget.TextView[@resource-id="android:id/text1" and @text="Estoque"]
+${telaRestore}                      xpath=//android.widget.FrameLayout[@resource-id="android:id/content"]/android.widget.LinearLayout
 
 *** Keywords ***
 Confirmar operação de restauração

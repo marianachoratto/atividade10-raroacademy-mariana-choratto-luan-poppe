@@ -3,11 +3,13 @@ Resource    ../../base.robot
 Library    XML
 
 *** Variables ***
-${adicionarGrupoProdutos}    xpath=//android.widget.Button[@resource-id="br.com.pztec.estoque:id/addgrupo"]
-${campoNomeGrupoProdutos}    xpath=//android.widget.EditText[@resource-id="br.com.pztec.estoque:id/txt_descricao"]
-${botaoSalvarGrupoProdutos}    xpath=//android.widget.Button[@resource-id="br.com.pztec.estoque:id/btn_salvar"]
+${adicionarGrupoProdutos}       id=br.com.pztec.estoque:id/addgrupo
+${campoNomeGrupoProdutos}       id=br.com.pztec.estoque:id/txt_descricao
+${botaoSalvarGrupoProdutos}     id=br.com.pztec.estoque:id/btn_salvar
 
 *** Keywords ***
+
+# Acho que pode apagar essa página. Não era pra fazer
 Dado que realizei uma alteração nos grupos de produtos
     Dado que acessei o aplicativo
     E que realizei uma alteração nos grupos de produtos

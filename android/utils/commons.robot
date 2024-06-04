@@ -47,3 +47,9 @@ Então o produto não deve ser cadastrado
     [Arguments]    ${elemento}
     Wait Until Element Is Visible    ${elemento}
     Element Should Be Enabled    ${elemento}
+
+Espera o elemento e checa o texto
+    [Arguments]    ${elemento}    ${texto}
+    Wait Until Page Contains Element    ${elemento}
+    Page Should Contain Text    ${texto}
+

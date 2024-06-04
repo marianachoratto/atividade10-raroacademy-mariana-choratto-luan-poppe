@@ -3,16 +3,16 @@ Resource    ../../base.robot
 Library    String
 
 *** Variables ***
-${telaBackup}    xpath=//android.widget.FrameLayout[@resource-id="android:id/content"]/android.widget.LinearLayout
-${tituloBackup}    xpath=//android.widget.TextView[@resource-id="br.com.pztec.estoque:id/textView3"]
-${propagandaBackup}    xpath=//android.webkit.WebView
-${gerarBackup}    xpath=//android.widget.Button[@resource-id="br.com.pztec.estoque:id/btn_gerar"]
-${botaoEnviarBackup}    xpath=//android.widget.Button[@resource-id="br.com.pztec.estoque:id/btn_send"]
-${textoBackup}    xpath=//android.widget.TextView[@resource-id="br.com.pztec.estoque:id/textView4"]
-${infoUltimoBackup}    xpath=//android.widget.TextView[@resource-id="br.com.pztec.estoque:id/datafile"]
-${tituloMensagemSucessoBackup}    xpath=//android.widget.TextView[@resource-id="android:id/alertTitle"]
-${textoMensagemSucessoBackup}    xpath=//android.widget.TextView[@resource-id="android:id/message"]
-${botaoOkMensagemSucessoBackup}    xpath=//android.widget.Button[@resource-id="android:id/button1"]
+${telaBackup}                            id=android:id/content
+${tituloBackup}                          id=br.com.pztec.estoque:id/textView3
+${propagandaBackup}                      xpath=//android.webkit.WebView
+${gerarBackup}                           id=br.com.pztec.estoque:id/btn_gerar
+${botaoEnviarBackup}                     id=br.com.pztec.estoque:id/btn_send
+${textoBackup}                           id=br.com.pztec.estoque:id/textView4
+${infoUltimoBackup}                      id=br.com.pztec.estoque:id/datafile
+${tituloMensagemSucessoBackup}           id=android:id/alertTitle
+${textoMensagemSucessoBackup}            id=android:id/message
+${botaoOkMensagemSucessoBackup}          id=android:id/button1
 
 *** Keywords ***
 Dado que acessei a seção de backup
@@ -21,7 +21,7 @@ Dado que acessei a seção de backup
 Dado que já realizei um backup antes
     Quando usuário acessar a seção de backup
     Quando executar a funcinoalidade de gerar backup
-    Espera o elemento para clicar    ${botaoOkMensagemSucessoBackup}
+    Espera o elemento para clicar    ${botãoOk}
     ${temp}=    Get Text    ${infoUltimoBackup}
     @{lista}=    Split String    ${temp}    separator=${SPACE}-${SPACE}
     Log    ${lista}[0]
@@ -30,7 +30,7 @@ Dado que já realizei um backup antes
 
 E que gerei um backup
     Quando executar a funcinoalidade de gerar backup
-    Espera o elemento para clicar    ${botaoOkMensagemSucessoBackup}
+    Espera o elemento para clicar    ${botãoOk}
 
 Quando usuário acessar a seção de backup
     Dado que acessei o aplicativo
@@ -55,10 +55,12 @@ Então deve ser possível ver as informações e instruções sobre backup
 
 Então o backup deve ser gerado com sucesso
     Wait Until Element Is Visible    ${tituloMensagemSucessoBackup}
-    Checar se elementos estão visíveis    ${tituloMensagemSucessoBackup}    ${textoMensagemSucessoBackup}    ${botaoOkMensagemSucessoBackup}
-    AppiumLibrary.Element Text Should Be    ${tituloMensagemSucessoBackup}    Operação concluída!
-    AppiumLibrary.Element Text Should Be    ${textoMensagemSucessoBackup}    Enviar
-    AppiumLibrary.Element Text Should Be    ${botaoOkMensagemSucessoBackup}    OK
+    Element Should Be Visible    ${tituloMensagemSucessoBackup}
+    Element Should Be Visible    ${textoMensagemSucessoBackup}
+    Element Should Be Visible    ${botaoOkMensagemSucessoBackup}
+    Element Text Should Be    ${tituloMensagemSucessoBackup}    Operação concluída!
+    Element Text Should Be    ${textoMensagemSucessoBackup}    Enviar
+    Element Text Should Be    ${botãoOk}    OK
 
 Então o celular deverá mostrar opções de para onde enviar o backup
     Então o celular deverá mostrar opções de para onde enviar o arquivo

@@ -2,15 +2,15 @@
 Resource    ../../base.robot
 
 *** Variables ***
-${pagEstoque}                xpath=//android.widget.ScrollView[@resource-id="br.com.pztec.estoque:id/scrollView1"]/android.widget.LinearLayout
-${inputDiminuirEstoque}       xpath=//android.widget.EditText[@resource-id="br.com.pztec.estoque:id/txt_qtdsaida"]
-${inputMotivo}                xpath=//android.widget.EditText[@resource-id="br.com.pztec.estoque:id/txt_motivo"]
-${inputDocReferencia}         xpath=//android.widget.EditText[@resource-id="br.com.pztec.estoque:id/txt_referencia"]
-${botaoSalvarSaida}            xpath=//android.widget.Button[@resource-id="br.com.pztec.estoque:id/btn_salvar"]
-${inputAdicionarEstoque}    xpath=//android.widget.EditText[@resource-id="br.com.pztec.estoque:id/txt_qtdentrada"]
-${calendarioMesAnterior}    id=android:id/prev
-${botãoOk}        id=android:id/button1
-${modalMensagemErro}        id=android:id/content
+${pagEstoque}                     id=br.com.pztec.estoque:id/scrollView1
+${inputDiminuirEstoque}           id=br.com.pztec.estoque:id/txt_qtdsaida
+${inputMotivo}                    id=br.com.pztec.estoque:id/txt_motivo
+${inputDocReferencia}             id=br.com.pztec.estoque:id/txt_referencia
+${botaoSalvarSaida}               id=br.com.pztec.estoque:id/btn_salvar
+${inputAdicionarEstoque}          id=br.com.pztec.estoque:id/txt_qtdentrada
+${calendarioMesAnterior}          id=android:id/prev
+${botãoOk}                        id=android:id/button1
+${modalMensagemErro}              id=android:id/content
 ${mensagemEstoqueInsuficiente}    id=android:id/message
 
 

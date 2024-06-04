@@ -2,47 +2,48 @@
 Resource    ../../base.robot
 
 *** Variables ***
-${botaoNovo}                   xpath=//android.widget.Button[@resource-id="br.com.pztec.estoque:id/Button1"]
-${botaoAceitarVersao}          xpath=//android.widget.Button[@resource-id="android:id/button1"]
+${botaoNovo}                   id=br.com.pztec.estoque:id/Button1
+# xpath original
 ${botaoMenu}                   xpath=//android.widget.Button[@resource-id="br.com.pztec.estoque:id/Button3"]
 ${paginaVazia}                 id=br.com.pztec.estoque:id/scrollView1
+
+# botões de modais
+${botãoModalConfirmar}         id=android:id/button1
+${botãoModalNegar}             id=android:id/button2
+# ${botaoAceitarVersao}          xpath=//android.widget.Button[@resource-id="android:id/button1"]
+# xpath=//android.widget.Button[@resource-id="br.com.pztec.estoque:id/Button3"]
+# Não sei se devemos deixar esse botão para deixar claro pro breno o problema
+
 ${inputPesquisa}               id=android:id/search_src_text
 ${botaoPesquisa}               id=android:id/search_button
 
-${botaoSaidaEstoque}           xpath=//android.widget.Button[@resource-id="br.com.pztec.estoque:id/saida"]
-${botaoEntradaEstoque}         xpath=//android.widget.Button[@resource-id="br.com.pztec.estoque:id/entrada"]
-${botãoEditar}                 xpath=//android.widget.Button[@resource-id="br.com.pztec.estoque:id/editar"]
+${botaoSaidaEstoque}           id=br.com.pztec.estoque:id/saida           
+${botaoEntradaEstoque}         id=br.com.pztec.estoque:id/entrada        
+${botãoEditar}                 id=br.com.pztec.estoque:id/editar
 ${botaoDeletar}                id=br.com.pztec.estoque:id/deletar
 
 # card do produto
-${estoqueProduto}             xpath=//android.widget.LinearLayout[@resource-id="br.com.pztec.estoque:id/linha_parte1"]
+${estoqueProduto}             id=br.com.pztec.estoque:id/linha_parte1
+${tabela_id_valor}            id=br.com.pztec.estoque:id/txt_idprod
+${tabela_código_valor}        id=br.com.pztec.estoque:id/txt_codigo
+${tabela_descricao_valor}     id=br.com.pztec.estoque:id/txt_descricao
+${tabela_grupo_valor}         id=br.com.pztec.estoque:id/txt_descateg
+${tabela_unidade_valor}       id=br.com.pztec.estoque:id/txt_unidade
+${tabela_quantidade_valor}    id=br.com.pztec.estoque:id/txt_quantidade
+${tabela_valor_unit_valor}    id=br.com.pztec.estoque:id/txt_valunit
+${tabela_lote_valor}          id=br.com.pztec.estoque:id/txt_lote
+${tabela_data_valor}          id=br.com.pztec.estoque:id/txt_validade
 
-${tabela_id_valor}            xpath=//android.widget.TextView[@resource-id="br.com.pztec.estoque:id/txt_idprod"]
-${tabela_código_valor}        xpath=//android.widget.TextView[@resource-id="br.com.pztec.estoque:id/txt_codigo"]
-${tabela_descricao_valor}     xpath=//android.widget.TextView[@resource-id="br.com.pztec.estoque:id/txt_descricao"]
-${tabela_grupo_valor}         xpath=//android.widget.TextView[@resource-id="br.com.pztec.estoque:id/txt_descateg"]
-${tabela_unidade_valor}       xpath=//android.widget.TextView[@resource-id="br.com.pztec.estoque:id/txt_unidade"]
-${tabela_quantidade_valor}    xpath=//android.widget.TextView[@resource-id="br.com.pztec.estoque:id/txt_quantidade"]
-${tabela_valor_unit_valor}    xpath=//android.widget.TextView[@resource-id="br.com.pztec.estoque:id/txt_valunit"]
-${tabela_lote_valor}          xpath=//android.widget.TextView[@resource-id="br.com.pztec.estoque:id/txt_lote"]
-${tabela_data_valor}          xpath=//android.widget.TextView[@resource-id="br.com.pztec.estoque:id/txt_validade"]
-
-# confirmar exclusão
-${botãoModalConfirmar}        id=android:id/button1
-${botãoModalNegar}            id=android:id/button2
 
 *** Keywords ***
-Dado que acessei o aplicativo
-    # ${isOkVisible}=    Run Keyword And Return Status    Wait Until Element Is Visible    ${botaoAceitarVersao}        
-    ${isOkVisible}=    Run Keyword And Return Status    Wait Until Keyword Succeeds    3    1    Espera o elemento para clicar    ${botaoAceitarVersao}        
+Dado que acessei o aplicativo        
+    ${isOkVisible}=    Run Keyword And Return Status    Wait Until Keyword Succeeds    3    1    Espera o elemento para clicar    ${botãoModalConfirmar}        
     
     IF    '${isOkVisible}'== ${True}
-        Espera o elemento para clicar    ${botaoAceitarVersao}
+        Espera o elemento para clicar    ${botãoModalConfirmar}
     ELSE
         Log    continue
     END
-    # Wait Until Page Contains Element    ${botaoAceitarVersao}
-    # Wait Until Keyword Succeeds    4    1    Espera o elemento para clicar    ${botaoAceitarVersao}
 
 Acessar Menu
     Wait Until Page Contains Element    ${botaoMenu}
@@ -106,6 +107,32 @@ Quando pesquiso por um produto
     Press Keycode    66
 
 Então o produto de pesquisa aparece
-    Wait Until Page Contains Element    ${estoqueProduto}
-    Page Should Contain Text    Computador XP1
-    Page Should Not Contain Text    ComputadorXP2    
+    Espera o elemento e checa o texto    ${estoqueProduto}    Computador XP1
+    Page Should Not Contain Text    ComputadorXP2
+
+Então encontro o card com o produto pesquisado
+    [Arguments]    ${elemento}    ${texto}
+    Wait Until Page Contains Element    ${elemento}
+    Page Should Contain Text    ${texto}
+
+E criei um produto com preço negativo
+    Espera o elemento para clicar    ${botaoNovo}
+    Wait Until Element Is Visible    ${campoCodigo}
+    Input Text    ${campoCodigo}    TV Samsung 55 polegadas
+    Input Text    ${campoDescricao}    Televisão QLED com qualidade 4k
+    Input Text    ${campoQuantidade}    50
+    Input Text    ${campoValorUnitario}    -450
+
+    Swipe By Percent    50    40    50    10
+    Espera o elemento para clicar    ${botaoSalvar}
+
+E criei um produto com quantidade negativa
+        Espera o elemento para clicar    ${botaoNovo}
+    Wait Until Element Is Visible    ${campoCodigo}
+    Input Text    ${campoCodigo}    TV Samsung 55 polegadas
+    Input Text    ${campoDescricao}    Televisão QLED com qualidade 4k
+    Input Text    ${campoQuantidade}    -99
+    Input Text    ${campoValorUnitario}    450
+
+    Swipe By Percent    50    40    50    10
+    Espera o elemento para clicar    ${botaoSalvar}    
