@@ -17,19 +17,19 @@ ${mensagemEstoqueInsuficiente}    id=android:id/message
 *** Keywords ***
 E tenho um estoque de produtos cadastrados
     E cadastrei um produto
-    Wait Until Element Is Visible    ${estoqueProduto}
+    Wait Until Element Is Visible    ${cardEstoqueProduto}
 
 Quando cadastro uma saída de estoque
     Espera o elemento para clicar    ${botaoSaidaEstoque}
     Wait Until Keyword Succeeds    4    1    Wait Until Element Is Visible    ${pagEstoque}
-    Input Text    ${inputDiminuirEstoque}    1 
+    Input Text    ${inputDiminuirEstoque}    1
     Input Text    ${inputMotivo}    Venda de produto 
     Input Text    ${inputDocReferencia}    Nota Fiscal #01
     Espera o elemento para clicar    ${botaoSalvarSaida}
 
 Então posso ver na página inicial que houve uma diminuição no estoque
-    Wait Until Element Is Visible    ${estoqueProduto}
-    Element Should Contain Text    ${tabela_quantidade_valor}    49.0
+    Wait Until Element Is Visible    ${cardEstoqueProduto}
+    Element Should Contain Text    ${tabelaQuantidadeValor}    49.0
 
 Quando cadastro uma entrada de estoque
     Espera o elemento para clicar    ${botaoEntradaEstoque}
@@ -39,8 +39,8 @@ Quando cadastro uma entrada de estoque
     Espera o elemento para clicar    ${botaoSalvarSaida}
 
 Então posso ver na página inicial que houve um aumento no estoque
-    Wait Until Element Is Visible    ${estoqueProduto}
-    Element Should Contain Text    ${tabela_quantidade_valor}    60.0
+    Wait Until Element Is Visible    ${cardEstoqueProduto}
+    Element Should Contain Text    ${tabelaQuantidadeValor}    60.0
 
 Quando diminuo o estoque para um numero negativo
     Espera o elemento para clicar    ${botaoSaidaEstoque}
@@ -57,12 +57,12 @@ Então receberei uma mensagem escrito "Estoque insuficiente"
 
 Quando diminuo o estoque para zero
     Espera o elemento para clicar    ${botaoSaidaEstoque}
-    Wait Until Element Is Visible    ${pagEstoque}
+    Wait Until Keyword Succeeds    4    1    Wait Until Element Is Visible    ${pagEstoque}
     Input Text    ${inputDiminuirEstoque}    50 
     Input Text    ${inputMotivo}    Venda de produto 
     Input Text    ${inputDocReferencia}    Nota Fiscal #00
     Espera o elemento para clicar    ${botaoSalvarSaida}
 
 Então posso ver na página inicial que meu estoque é zero
-    Wait Until Element Is Visible    ${estoqueProduto}
-    Element Should Contain Text    ${tabela_quantidade_valor}    0.0
+    Wait Until Element Is Visible    ${cardEstoqueProduto}
+    Element Should Contain Text    ${tabelaQuantidadeValor}    0.0
