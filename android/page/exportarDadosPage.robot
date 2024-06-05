@@ -37,7 +37,7 @@ Dado que realizei a exportação de produtos
     Espera o elemento para clicar    ${mensagemSucessoOKExportar}
     Clicar para voltar no celular
     Clicar para voltar no celular
-    Espera o elemento para clicar    ${botaoDeletar}
+    Wait Until Keyword Succeeds    4    1    Espera o elemento para clicar    ${botaoDeletar}
     Espera o elemento para clicar    id=android:id/button1
 
 Dado que realizei a exportação de entradas
