@@ -57,3 +57,7 @@ Espera o elemento e checa o texto
     Wait Until Page Contains Element    ${elemento}
     Page Should Contain Text    ${texto}
 
+Espera o elemento e checa o texto do elemento
+    [Arguments]    ${elemento}    ${texto}
+    Wait Until Page Contains Element    ${elemento}
+    Element Should Contain Text    ${elemento}    ${texto}
