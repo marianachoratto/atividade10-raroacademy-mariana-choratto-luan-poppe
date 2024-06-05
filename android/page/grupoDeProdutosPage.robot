@@ -8,8 +8,6 @@ ${campoNomeGrupoProdutos}       id=br.com.pztec.estoque:id/txt_descricao
 ${botaoSalvarGrupoProdutos}     id=br.com.pztec.estoque:id/btn_salvar
 
 *** Keywords ***
-
-# Acho que pode apagar essa página. Não era pra fazer
 Dado que realizei uma alteração nos grupos de produtos
     Dado que acessei o aplicativo
     E que realizei uma alteração nos grupos de produtos

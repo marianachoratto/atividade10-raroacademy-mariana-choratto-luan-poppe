@@ -4,7 +4,6 @@ Resource    ../../base.robot
 *** Variables ***
 ${tituloPaginaInicial}         xpath=//android.widget.TextView[@text="Cadastro de Produtos"]
 ${botaoNovo}                   id=br.com.pztec.estoque:id/Button1
-# xpath original
 ${botaoMenu}                   xpath=//android.widget.Button[@resource-id="br.com.pztec.estoque:id/Button3"]
 ${paginaVazia}                 id=br.com.pztec.estoque:id/scrollView1
 

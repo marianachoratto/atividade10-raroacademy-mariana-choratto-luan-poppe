@@ -15,20 +15,6 @@ ${mensagemRestaurarProdutosDescricao}        id=android:id/message
 ${mensagemRegistrosRestauradosTitulo}        id=android:id/alertTitle
 ${mensagemRegistrosRestauradosDescricao}     id=android:id/message
 
-# XPATHS ORIGINAIS
-# ${tituloImportacao}    xpath=//android.widget.TextView[@text="Importar dados"]
-# ${botaoRestaurarProdutosImportacao}    xpath=//android.widget.Button[@resource-id="br.com.pztec.estoque:id/btn_produtos"]
-# ${botaoRestaurarEntradasImportacao}    xpath=//android.widget.Button[@resource-id="br.com.pztec.estoque:id/btn_entradas"]
-# ${botaoRestaurarSaidasImportacao}    xpath=//android.widget.Button[@resource-id="br.com.pztec.estoque:id/btn_saidas"]
-# ${botaoRestaurarGruposImportacao}    xpath=//android.widget.Button[@resource-id="br.com.pztec.estoque:id/btn_grupos"]
-
-# ${mensagemRestaurarTitulo}    xpath=//android.widget.TextView[@resource-id="android:id/alertTitle"]
-# ${mensagemRestaurarDescricao}    xpath=//android.widget.TextView[@resource-id="android:id/message"]
-# ${mensagemRestaurarBotaoSim}    xpath=//android.widget.Button[@resource-id="android:id/button1"]
-# ${mensagemRegistrosRestauradosTitulo}    xpath=//android.widget.TextView[@resource-id="android:id/alertTitle"]
-# ${mensagemRegistrosRestauradosDescricao}    xpath=//android.widget.TextView[@resource-id="android:id/message"]
-# ${mensagemRegistrosRestauradosOK}    xpath=//android.widget.Button[@resource-id="android:id/button1"]
-
 *** Keywords ***
 Selecionar importação
     [Arguments]    ${arquivoSelecionado}    ${mensagemDescricao}

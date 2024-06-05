@@ -66,7 +66,6 @@ Dado que realizei a exportação de grupos
     Clicar para voltar no celular
 
 E que acessei a seção de exportar dados
-    # Dado que acessei o aplicativo
     Quando usuário acessar a seção de exportar dados
 
 E realizei a exportação de dados
@@ -105,9 +104,6 @@ Quando acesso a funcionalidade de enviar os dados exportados de grupos
     Wait Until Page Contains Element    ${historicoExportacaoTextoGrupos}
     Espera o elemento para clicar    ${botaoEnviarExportacaoGrupos}
 
-
-# Quando acesso a funcionalidade de enviar os dados exportados sem ter exportado dados previamente
-
 Então deve ser possível ver as informações e instruções sobre exportação de dados
     Wait Until Page Contains Element    ${telaExportar}
     Wait Until Page Contains Element    ${propagandaExportar}
@@ -127,4 +123,3 @@ Então o celular deverá mostrar opções de para onde enviar o arquivo exportad
 
 Então deverá ser possível a mensagem de erro
     Page Should Contain Element    ${mensagemErroPDFNaoGerado}
-    # Element Should Be Visible    ${mensagemErroPDFNaoGerado}
