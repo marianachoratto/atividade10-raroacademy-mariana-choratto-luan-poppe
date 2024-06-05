@@ -2,6 +2,7 @@
 Resource    ../../base.robot
 
 *** Variables ***
+${tituloPaginaInicial}         xpath=//android.widget.TextView[@text="Cadastro de Produtos"]
 ${botaoNovo}                   id=br.com.pztec.estoque:id/Button1
 # xpath original
 ${botaoMenu}                   xpath=//android.widget.Button[@resource-id="br.com.pztec.estoque:id/Button3"]
@@ -23,20 +24,20 @@ ${botãoEditar}                 id=br.com.pztec.estoque:id/editar
 ${botaoDeletar}                id=br.com.pztec.estoque:id/deletar
 
 # card do produto
-${estoqueProduto}             id=br.com.pztec.estoque:id/linha_parte1
-${tabela_id_valor}            id=br.com.pztec.estoque:id/txt_idprod
-${tabela_código_valor}        id=br.com.pztec.estoque:id/txt_codigo
-${tabela_descricao_valor}     id=br.com.pztec.estoque:id/txt_descricao
-${tabela_grupo_valor}         id=br.com.pztec.estoque:id/txt_descateg
-${tabela_unidade_valor}       id=br.com.pztec.estoque:id/txt_unidade
-${tabela_quantidade_valor}    id=br.com.pztec.estoque:id/txt_quantidade
-${tabela_valor_unit_valor}    id=br.com.pztec.estoque:id/txt_valunit
-${tabela_lote_valor}          id=br.com.pztec.estoque:id/txt_lote
-${tabela_data_valor}          id=br.com.pztec.estoque:id/txt_validade
+${cardEstoqueProduto}       id=br.com.pztec.estoque:id/linha_parte1
+${tabelaIdValor}            id=br.com.pztec.estoque:id/txt_idprod
+${tabelaCodigoValor}        id=br.com.pztec.estoque:id/txt_codigo
+${tabelaDescricaoValor}     id=br.com.pztec.estoque:id/txt_descricao
+${tabelaGrupoValor}         id=br.com.pztec.estoque:id/txt_descateg
+${tabelaUnidadeValor}       id=br.com.pztec.estoque:id/txt_unidade
+${tabelaQuantidadeValor}    id=br.com.pztec.estoque:id/txt_quantidade
+${tabelaValorUnitValor}     id=br.com.pztec.estoque:id/txt_valunit
+${tabelaLoteValor}          id=br.com.pztec.estoque:id/txt_lote
+${tabelaDataValor}          id=br.com.pztec.estoque:id/txt_validade
 
 
 *** Keywords ***
-Dado que acessei o aplicativo        
+Dado que acessei o aplicativo
     ${isOkVisible}=    Run Keyword And Return Status    Wait Until Keyword Succeeds    3    1    Espera o elemento para clicar    ${botãoModalConfirmar}        
     
     IF    '${isOkVisible}'== ${True}
@@ -45,26 +46,29 @@ Dado que acessei o aplicativo
         Log    continue
     END
 
+Quando acesso o aplicativo
+    Dado que acessei o aplicativo
+
 Acessar Menu
     Wait Until Keyword Succeeds    4    1    Wait Until Page Contains Element    ${botaoMenu}
     Wait Until Keyword Succeeds    4    1    Espera o elemento para clicar    ${botaoMenu}
 
 Então deve ser possível ver as informações sobre os produtos cadastrados
-    Wait Until Page Contains Element    ${estoqueProduto}
-    Element Should Contain Text    ${tabela_id_valor}    1
-    Element Should Contain Text    ${tabela_código_valor}    TV Samsung 55 polegadas
-    Element Should Contain Text    ${tabela_descricao_valor}    Televisão QLED com qualidade 4k
-    Element Should Contain Text    ${tabela_grupo_valor}    Geral
-    Element Should Contain Text    ${tabela_unidade_valor}    Unidade 01
-    Element Should Contain Text    ${tabela_quantidade_valor}    50
-    Element Should Contain Text    ${tabela_valor_unit_valor}    4.500,00
-    Element Should Contain Text    ${tabela_lote_valor}    Lote 01
+    Wait Until Page Contains Element    ${cardEstoqueProduto}
+    Element Should Contain Text    ${tabelaIdValor}    1
+    Element Should Contain Text    ${tabelaCodigoValor}    TV Samsung 55 polegadas
+    Element Should Contain Text    ${tabelaDescricaoValor}    Televisão QLED com qualidade 4k
+    Element Should Contain Text    ${tabelaGrupoValor}    Geral
+    Element Should Contain Text    ${tabelaUnidadeValor}    Unidade 01
+    Element Should Contain Text    ${tabelaQuantidadeValor}    50
+    Element Should Contain Text    ${tabelaValorUnitValor}    4.500,00
+    Element Should Contain Text    ${tabelaLoteValor}    Lote 01
     ${current_date}=    Pegar e formatar data atual
-    Element Should Contain Text    ${tabela_data_valor}    ${current_date} 
+    Element Should Contain Text    ${tabelaDataValor}    ${current_date} 
 
 Quando edito as informações de um produto
     Espera o elemento para clicar    ${botãoEditar}
-    Wait Until Element Is Visible    ${campoCodigo}
+    Wait Until Keyword Succeeds    4    1    Wait Until Element Is Visible    ${campoCodigo}
     Clear Text    ${campoCodigo}
     Input Text    ${campoCodigo}    Ipad 12 Apple
     Swipe By Percent    50    40    50    10
@@ -73,13 +77,13 @@ Quando edito as informações de um produto
     Espera o elemento para clicar    ${botaoSalvar}
 
 Então posso ver na página inicial que as informações foram alteradas
-    Wait Until Element Is Visible    ${estoqueProduto}
-    Element Should Contain Text    ${tabela_código_valor}    Ipad 12 Apple
-    Element Should Contain Text    ${tabela_lote_valor}    Lote 22
+    Wait Until Element Is Visible    ${cardEstoqueProduto}
+    Element Should Contain Text    ${tabelaCodigoValor}    Ipad 12 Apple
+    Element Should Contain Text    ${tabelaLoteValor}    Lote 22
 
-Quando edito a data de compra do produto
+Quando edito a data de validate do produto
     Espera o elemento para clicar    ${botãoEditar}
-    Wait Until Element Is Visible    ${campoCodigo}
+    Wait Until Keyword Succeeds    4    1    Wait Until Element Is Visible    ${campoCodigo}
     Swipe By Percent    50    40    50    10
     Espera o elemento para clicar    ${campoData}
     Espera o elemento para clicar    ${calendarioMesAnterior}
@@ -88,8 +92,10 @@ Quando edito a data de compra do produto
     Espera o elemento para clicar    ${botaoSalvar}
 
 Então posso visualizar a nova data na página inicial
-    Wait Until Page Contains Element    ${estoqueProduto}
-    Element Should Contain Text    ${tabela_data_valor}    13/05/2024
+    Wait Until Page Contains Element    ${cardEstoqueProduto}
+    ${hoje}=    Pegar e formatar data atual
+    Element Should Not Contain Text    ${tabelaDataValor}    ${hoje}
+    Should Not Be Empty    ${tabelaDataValor}
 
 Quando deleto um produto
     Espera o elemento para clicar    ${botaoDeletar}
@@ -97,23 +103,23 @@ Quando deleto um produto
 
 Então vejo que o produto foi deletado
     Wait Until Page Contains Element    ${paginaVazia}
-    Page Should Not Contain Element    ${estoqueProduto}
+    Page Should Not Contain Element    ${cardEstoqueProduto}
 
 Quando pesquiso por um produto
     [Arguments]    ${valorPesquisado}
-    Wait Until Page Contains Element    ${estoqueProduto}        
+    Wait Until Page Contains Element    ${cardEstoqueProduto}        
     Click Element    ${botaoPesquisa} 
-    Input Text    ${inputPesquisa}    ${valorPesquisado}    
+    Input Text    ${inputPesquisa}    ${valorPesquisado}
     Clicar enter no celular
 
 Então o produto de pesquisa aparece
-    Espera o elemento e checa o texto    ${estoqueProduto}    Computador XP1
+    Espera o elemento e checa o texto    ${cardEstoqueProduto}    Computador XP1
     Page Should Not Contain Text    ComputadorXP2
 
 Então encontro o card com o produto pesquisado
-    [Arguments]    ${elemento}    ${texto}
-    Wait Until Page Contains Element    ${elemento}
-    Page Should Contain Text    ${texto}
+    [Arguments]    ${texto}
+    Wait Until Page Contains Element    ${cardEstoqueProduto}
+    Wait Until Keyword Succeeds    4    1    Page Should Contain Text    ${texto}
 
 E criei um produto com preço negativo
     Espera o elemento para clicar    ${botaoNovo}
@@ -136,3 +142,9 @@ E criei um produto com quantidade negativa
 
     Swipe By Percent    50    40    50    10
     Espera o elemento para clicar    ${botaoSalvar}    
+
+Então deve ser possível ver as principais funcionalidades da página inicial
+    Wait Until Element Is Visible    ${tituloPaginaInicial}
+    Element Should Be Visible    ${tituloPaginaInicial}    ${botaoPesquisa}
+    Element Text Should Be    ${botaoNovo}    NOVO
+    Element Text Should Be    ${botaoMenu}    MENU

@@ -47,6 +47,10 @@ Então o produto não deve ser cadastrado
     [Arguments]    ${elemento}
     Wait Until Element Is Visible    ${elemento}
     Element Should Be Enabled    ${elemento}
+    Element Text Should Be    ${elemento}    ${EMPTY}
+    Clicar para voltar no celular
+    Clicar para voltar no celular
+    Page Should Not Contain Element    ${cardEstoqueProduto}
 
 Espera o elemento e checa o texto
     [Arguments]    ${elemento}    ${texto}
