@@ -32,21 +32,26 @@ O usuário deve poder fazer pesquisas buscando por outros campos, como preço
     E criei 2 produtos
     Quando pesquiso por um produto    301
     Então encontro o card com o produto pesquisado    301,00
+    E não encontro o outro produto    Computador XP2
 
 O usuário deve poder fazer pesquisas buscando por outros campos, como quantidade
     Dado que acessei o aplicativo
     E criei 2 produtos
     Quando pesquiso por um produto    12
     Então encontro o card com o produto pesquisado    12
+    E não encontro o outro produto    Computador XP1
 
 O usuário deve poder fazer pesquisas buscando por outros campos, como unidade
     Dado que acessei o aplicativo
     E cadastrei um produto
     Quando pesquiso por um produto    Unidade 01
+    Então encontro o card com o produto pesquisado    Unidade 01
+
 O usuário deve poder fazer pesquisas buscando por outros campos, como código
     Dado que acessei o aplicativo
     E cadastrei um produto
     Quando pesquiso por um produto    TV Samsung 55
+    Então encontro o card com o produto pesquisado    TV Samsung 55
 
 O usuário deve poder editar estoque
     Dado que acessei o aplicativo
@@ -60,13 +65,13 @@ O usuário deve poder alterar a data de validade de um produto
     Quando edito a data de validate do produto
     Então posso visualizar a nova data na página inicial
 
-# Débito técnico. No celular o usuário não conseque colocar numeros negativos por causa do teclado. Porém no teste é possível o aplicativo salva. 
+# Débito técnico. No celular o usuário não conseque colocar numeros negativos por causa do teclado. Porém no teste é possível e o aplicativo salva. 
 O usuário não pode criar um produto com preço negativo
     Dado que acessei o aplicativo
     E criei um produto com preço negativo
     Então encontro o card com o produto pesquisado    -.450,00    #esse . fica, se não o teste quebra
 
-# Débito técnico. No celular o usuário não conseque colocar numeros negativos por causa do teclado. Porém no teste é possível o aplicativo salva.
+# Débito técnico. No celular o usuário não conseque colocar numeros negativos por causa do teclado. Porém no teste é possível e o aplicativo salva.
 O usuário não pode criar um produto com quantidade negativa
     Dado que acessei o aplicativo
     E criei um produto com quantidade negativa

@@ -11,9 +11,6 @@ ${paginaVazia}                 id=br.com.pztec.estoque:id/scrollView1
 # botões de modais
 ${botãoModalConfirmar}         id=android:id/button1
 ${botãoModalNegar}             id=android:id/button2
-# ${botaoAceitarVersao}          xpath=//android.widget.Button[@resource-id="android:id/button1"]
-# xpath=//android.widget.Button[@resource-id="br.com.pztec.estoque:id/Button3"]
-# Não sei se devemos deixar esse botão para deixar claro pro breno o problema
 
 ${inputPesquisa}               id=android:id/search_src_text
 ${botaoPesquisa}               id=android:id/search_button
@@ -38,7 +35,7 @@ ${tabelaDataValor}          id=br.com.pztec.estoque:id/txt_validade
 
 *** Keywords ***
 Dado que acessei o aplicativo
-    ${isOkVisible}=    Run Keyword And Return Status    Wait Until Keyword Succeeds    3    1    Espera o elemento para clicar    ${botãoModalConfirmar}        
+    ${isOkVisible}=    Run Keyword And Return Status    Wait Until Keyword Succeeds    4    1    Espera o elemento para clicar    ${botãoModalConfirmar}        
     
     IF    '${isOkVisible}'== ${True}
         Espera o elemento para clicar    ${botãoModalConfirmar}
@@ -69,17 +66,25 @@ Então deve ser possível ver as informações sobre os produtos cadastrados
 Quando edito as informações de um produto
     Espera o elemento para clicar    ${botãoEditar}
     Wait Until Keyword Succeeds    4    1    Wait Until Element Is Visible    ${campoCodigo}
+    Espera o elemento e checa o texto do elemento    ${campoCodigo}     TV Samsung 55 polegadas
+    Espera o elemento e checa o texto do elemento    ${campoDescricao}    Televisão QLED com qualidade 4k
+    Espera o elemento e checa o texto do elemento    ${campoUnidade}    Unidade 01
+    Espera o elemento e checa o texto do elemento    ${campoQuantidade}     50
+    Espera o elemento e checa o texto do elemento    ${campoValorUnitario}   4500
+    Swipe By Percent    50    40    50    10
+    Espera o elemento e checa o texto do elemento    ${campoLote}    Lote 01
+    Swipe By Percent    50    15    50    40    
     Clear Text    ${campoCodigo}
     Input Text    ${campoCodigo}    Ipad 12 Apple
-    Swipe By Percent    50    40    50    10
-    Clear Text    ${campoLote}
-    Input Text    ${campoLote}    Lote 22
+    Clear Text    ${campoQuantidade}
+    Input Text    ${campoQuantidade}    15
     Espera o elemento para clicar    ${botaoSalvar}
 
 Então posso ver na página inicial que as informações foram alteradas
     Wait Until Element Is Visible    ${cardEstoqueProduto}
     Element Should Contain Text    ${tabelaCodigoValor}    Ipad 12 Apple
-    Element Should Contain Text    ${tabelaLoteValor}    Lote 22
+    Element Should Contain Text    ${tabelaQuantidadeValor}    15
+
 
 Quando edito a data de validate do produto
     Espera o elemento para clicar    ${botãoEditar}
@@ -120,6 +125,10 @@ Então encontro o card com o produto pesquisado
     [Arguments]    ${texto}
     Wait Until Page Contains Element    ${cardEstoqueProduto}
     Wait Until Keyword Succeeds    4    1    Page Should Contain Text    ${texto}
+
+E não encontro o outro produto
+    [Arguments]    ${text}
+    Page Should Not Contain Text    ${text}
 
 E criei um produto com preço negativo
     Espera o elemento para clicar    ${botaoNovo}
